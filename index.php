@@ -6,10 +6,9 @@ $type = 'normal';
 if (isset($_GET['action']) && $_GET['action'] == 'auth') {
 	if ($_POST['username'] == 'shnergle' && $_POST['password'] == '$Hnergle1') {
 		$_SESSION['auth'] = true;
+		header('Location: /');
 	} else {
-		$type = 'signin';
-		require_once 'header.php';
-		require_once 'signin.html';
+		header('Location: /');
 	}
 } elseif (isset($_GET['action']) && $_GET['action'] == 'out') {
 	session_unset();
