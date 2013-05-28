@@ -66,7 +66,7 @@
 			<div class="container">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span>
       <span class="icon-bar"></span>
-      <span class="icon-bar"></span></button> <a class="navbar-brand" href="#"><img src="logo.png" height="50"> ShnergleAdmin</a>
+      <span class="icon-bar"></span></button> <a class="navbar-brand" href="#">ShnergleAdmin</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="active">
