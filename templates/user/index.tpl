@@ -4,7 +4,9 @@
 <div class="page-header">
   <h1>Users</h1>
 </div>
-<p style="text-align: right"><a href="/?controller=user&action=add">New</a></p>
+<p style="text-align: right">
+  <a href="/?controller=user&action=add" class="btn btn-success">New</a>
+</p>
 <table class="table table-striped table-bordered">
   <tr>
     <th>ID</th>
