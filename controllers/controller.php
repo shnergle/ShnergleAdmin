@@ -1,21 +1,18 @@
 <?php
 class Controller {
-	function __construct($controller, $action, $params, $form, &$session, $smarty) {
+	function __construct($controller, $action, $smarty) {
 		$this->controller = $controller;
 		$this->action = $action;
-		$this->params = $params;
-		$this->form = $form;
-		$this->session = &$session;
+		$this->params = $_GET;
+		$this->form = $_POST;
+		$this->session = &$_SESSION;
 		$this->smarty = $smarty;
-		$this->smarty->assign('controller', $this->controller);
-		$this->smarty->assign('action', $this->action);
 		$this->auth = empty($_SESSION['auth']) ? false : true;
-		$this->smarty->assign('auth', $this->auth);
 		if (!empty($this->session['flash'])) {
-			$this->smarty->assign('flash', $this->session['flash']);
+			$this->flash = $this->session['flash'];
 			unset($this->session['flash']);
 			if (!empty($this->session['flashtype'])) {
-				$this->smarty->assign('flashtype', $this->session['flashtype']);
+				$this->flashtype = $this->session['flashtype'];
 				$this->session['flashtype'];
 			}
 		}
@@ -30,6 +27,7 @@ class Controller {
 		$this->session['flashtype'] = $type;
 	}
 	function render($name = null) {
+		$this->smarty->assign(get_object_vars($this));
 		if (empty($name))
 			$name = $this->action;
 		$this->smarty->display($this->controller . '/' . $name . '.tpl');
