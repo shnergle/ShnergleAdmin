@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/css/application.css" rel="stylesheet" type="text/css">
   </head>
-  <body class="{$controller} {$action}">
+  <body class="{$controller|lower} {$action}">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -22,13 +22,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">ShnergleAdmin</a>
+        <a class="navbar-brand" href="/">ShnergleAdmin</a>
         {if $auth}
           <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-              <li>
-                <a href="/">Dashboard</a>
-              </li>
               <li>
                 <a href="/?controller=media">Media</a>
               </li>
