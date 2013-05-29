@@ -7,7 +7,7 @@
 <table class="table table-striped table-bordered">
   {foreach $entry as $value}
     <tr>
-      <td>{$value@key}</td>
+      <th>{$value@key}</th>
       <td>{$value}</td>
     </tr>
   {/foreach}
