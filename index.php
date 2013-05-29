@@ -8,11 +8,10 @@ spl_autoload_register(function ($class) {
 
 session_start();
 
-$sql = sqlsrv_connect('r7g4obkx8p.database.windows.net:1433', 'shnergle',
-                      '$Hnergle1');
-if (!$mssql)
+$coninfo = array('Database' => 'shnergle-db', 'UID' => shnergle,                                 'PWD' => '$Hnergle1');
+$sql = sqlsrv_connect('tcp:r7g4obkx8p.database.windows.net,1433', $coninfo);
+if (!$sql)
 	die('Database Connection Error!');
-sqlsrv_select_db('shnergle-db', $sql);
 
 define('SMARTY_DIR', str_replace("\\", "/", getcwd()) . '/smarty/');
 require_once SMARTY_DIR . 'Smarty.class.php';
