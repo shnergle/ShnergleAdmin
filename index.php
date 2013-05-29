@@ -1,27 +1,13 @@
 <?php
-session_start();
-
-$type = 'normal';
-
-if (isset($_GET['action']) && $_GET['action'] == 'auth') {
-	if ($_POST['username'] == 'shnergle' && $_POST['password'] == '$Hnergle1') {
-		$_SESSION['auth'] = true;
-		header('Location: /');
-	} else {
-		header('Location: /');
-	}
-} elseif (isset($_GET['action']) && $_GET['action'] == 'out') {
-	session_unset();
-	session_destroy();
-	header('Location: /');
-} elseif (!isset($_SESSION['auth'])) {
-	$type = 'signin';
-	require_once 'header.php';
-	require_once 'signin.html';
-} else {
-	require_once 'header.php';
-	require_once 'index.html';
+function __autoload($class_name) {
+    require_once 'controllers/' . $class_name . '.php';
 }
-
-require_once 'footer.php';
+define('SMARTY_DIR', str_replace("\\", "/", getcwd()) . '/smarty/');
+require_once SMARTY_DIR . 'Smarty.class.php';
+$smarty = new Smarty();
+$gcontroller = empty($_GET['controller'] ? 'main' : $_GET['controller'];
+$gaction = empty($_GET['controller'] ? 'index' : $_GET['action'];
+$controller = ucfirst($gcontroller);
+$controller = new $controller($_GET, $smarty);
+$controller->$gaction();
 ?>
