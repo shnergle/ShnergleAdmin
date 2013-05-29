@@ -32,7 +32,7 @@ class Controller {
 	function render($name = null) {
 		if (empty($name))
 			$name = $this->action;
-		$this->smarty->render($this->controller . $name . '.tpl');
+		$this->smarty->display($this->controller . $name . '.tpl');
 	}
 }
 ?>
