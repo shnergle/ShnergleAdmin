@@ -42,33 +42,33 @@ class Controller {
 			$dir = 'generic';
 		$this->smarty->display($dir . $file);
 	}
-	function query($query, $params = null) {
+	function db_query($query, $params = null) {
 		if (($qry = sqlsrv_query($this->sql, $query, $params)) === false)
 		    die(print_r(sqlsrv_errors(), true));
 		return $qry;
 	}
-	function result($query) {
-		$qry = $this->query($query);
+	function db_result($query) {
+		$qry = $this->db_query($query);
 		$result = array();
 		while ($row = sqlsrv_fetch_array($qry, SQLSRV_FETCH_ASSOC))
 		      $result[] = $row;
 		sqlsrv_free_stmt($qry);
 		return $result;
 	}
-	function query_all($table = null) {
+	function db_query_all($table = null) {
 		if (empty($table))
 			$table = strtolower($this->controller);
-		return $this->result('SELECT * FROM ' . $table);
+		return $this->db_result('SELECT * FROM ' . $table);
 	}
-	function query_one($id = null, $table = null) {
+	function db_query_one($id = null, $table = null) {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
 			$table = strtolower($this->controller);
-		return $this->result('SELECT TOP(1) * FROM ' . $table .
-		                     ' WHERE id = \'' . $id . '\'')[0];
+		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
+		                        ' WHERE id = \'' . $id . '\'')[0];
 	}
-	function insert($values = null, $table = null) {
+	function db_insert($values = null, $table = null) {
 		if (empty($values))
 			$values = $form;
 		if (empty($table))
@@ -76,14 +76,14 @@ class Controller {
 		$columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$fields = array_values($values);
-		$qry = $this->query('INSERT INTO ' . $table . ' (' . $columns .
-			                ') VALUES (' . $placeholders . '); ' .
-							'SELECT SCOPE_IDENTITY()', $fields);
+		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
+			                  ') VALUES (' . $placeholders . '); ' .
+							  'SELECT SCOPE_IDENTITY()', $fields);
 		sqlsrv_next_result($qry); 
 		sqlsrv_fetch($qry); 
 		return sqlsrv_get_field($qry, 0); 
 	}
-	function update($values = null, $id = null, $table = null) {
+	function db_update($values = null, $id = null, $table = null) {
 		if (empty($values))
 			$values = $form;
 		if (empty($id))
@@ -96,44 +96,45 @@ class Controller {
 		$set = implode(', ', $set);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$fields = array_values($values);
-		$qry = $this->query('UPDATE ' . $table . ' SET ' . $set .
-			                ' WHERE id = \'' . $id . '\'', $fields);
+		$qry = $this->db_query('UPDATE ' . $table . ' SET ' . $set .
+			                   ' WHERE id = \'' . $id . '\'', $fields);
 	}
-	function delete($id = null, $table = null) {
+	function db_delete($id = null, $table = null) {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
 			$table = strtolower($this->controller);
-		$this->query('DELETE FROM ' . $table . ' WHERE id = \'' . $id . '\'');
+		$this->db_query('DELETE FROM ' . $table .
+			            ' WHERE id = \'' . $id . '\'');
 	}
 	function index() {
-		$this->entries = $this->query_all();
+		$this->entries = $this->db_query_all();
 		$this->render();
 	}
 	function view() {
-		$this->entry = $this->query_one();
+		$this->entry = $this->db_query_one();
 		$this->render();
 	}
 	function add() {
 		$this->render('edit');
 	}
 	function add_action() {
-		$id = $this->insert();
+		$id = $this->db_insert();
 		$this->redirect(null, 'view', array('id' => $id));
 	}
 	function edit() {
-		$this->entry = $this->query_one();
+		$this->entry = $this->db_query_one();
 		$this->render();
 	}
 	function edit_action() {
-		$this->update();
+		$this->db_update();
 		$this->redirect(null, 'view', array('id' => $this->id));
 	}
 	function delete() {
 		$this->render();
 	}
 	function delete_action() {
-		$this->delete();
+		$this->db_delete();
 		$this->redirect();
 	}
 }
