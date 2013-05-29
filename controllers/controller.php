@@ -64,7 +64,7 @@ class Controller {
 	}
 	function db_query_one($id = null, $table = null) {
 		if (empty($id))
-			$table = strtolower($this->id);
+			$table = strtolower($this->params['id']);
 		if (empty($table))
 			$table = strtolower($this->controller) . 's';
 		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
@@ -89,7 +89,7 @@ class Controller {
 		if (empty($values))
 			$values = $form;
 		if (empty($id))
-			$table = strtolower($this->id);
+			$table = strtolower($this->params['id']);
 		if (empty($table))
 			$table = strtolower($this->controller) . 's';
 		$set = array();
@@ -103,7 +103,7 @@ class Controller {
 	}
 	function db_delete($id = null, $table = null) {
 		if (empty($id))
-			$table = strtolower($this->id);
+			$table = strtolower($this->params['id']);
 		if (empty($table))
 			$table = strtolower($this->controller) . 's';
 		$this->db_query('DELETE FROM ' . $table .
