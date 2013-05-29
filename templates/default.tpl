@@ -30,13 +30,22 @@
                 <a href="/">Dashboard</a>
               </li>
               <li>
+                <a href="/?controller=media">Media</a>
+              </li>
+              <li>
+                <a href="/?controller=post">Posts</a>
+              </li>
+              <li>
+                <a href="/?controller=promotion">Promotions</a>
+              </li>
+              <li>
                 <a href="/?controller=user">Users</a>
               </li>
               <li>
                 <a href="/?controller=venue">Venues</a>
               </li>
               <li>
-                <a href="#">Images</a>
+                <a href="/?controller=images">Images</a>
               </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
