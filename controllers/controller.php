@@ -38,7 +38,7 @@ class Controller {
 			$name = $this->action;
 		$dir = strtolower($this->controller);
 		$file = '/' . $name . '.tpl';
-		if (!file_exists('../templates/' . $dir . $file))
+		if (!file_exists('templates/' . $dir . $file))
 			$dir = 'generic';
 		$this->smarty->display($dir . $file);
 	}

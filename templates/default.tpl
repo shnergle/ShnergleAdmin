@@ -45,7 +45,7 @@
                 <a href="/?controller=venue">Venues</a>
               </li>
               <li>
-                <a href="/?controller=images">Images</a>
+                <a href="/?controller=image">Images</a>
               </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
