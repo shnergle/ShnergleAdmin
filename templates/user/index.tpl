@@ -9,6 +9,7 @@
   <tr>
     <th>ID</th>
     <th>Facebook ID</th>
+    <th>Actions</th>
   </tr>
   {foreach $entries as $entry}
     <tr>
