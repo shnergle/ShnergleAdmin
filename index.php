@@ -11,8 +11,8 @@ session_start();
 $coninfo = array('Database' => 'shnergle-db', 'UID' => 'shnergle',
                  'PWD' => '$Hnergle1');
 $sql = sqlsrv_connect('tcp:r7g4obkx8p.database.windows.net,1433', $coninfo);
-if (!$sql)
-	die('Database Connection Error!');
+if ($sql === false)
+    die(print_r(sqlsrv_errors(), true));
 
 define('SMARTY_DIR', str_replace("\\", "/", getcwd()) . '/smarty/');
 require_once SMARTY_DIR . 'Smarty.class.php';
