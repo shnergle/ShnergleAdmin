@@ -1,10 +1,10 @@
 <?php
 class Controller {
-	function __construct($controller, $action, $smarty, $mssql) {
+	function __construct($controller, $action, $smarty, $sql) {
 		$this->controller = $controller;
 		$this->action = $action;
 		$this->smarty = $smarty;
-		$this->mssql = $mssql;
+		$this->sql = $sql;
 		$this->params = $_GET;
 		$this->form = $_POST;
 		$this->session = &$_SESSION;
