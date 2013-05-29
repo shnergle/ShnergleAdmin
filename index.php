@@ -8,7 +8,8 @@ spl_autoload_register(function ($class) {
 
 session_start();
 
-$coninfo = array('Database' => 'shnergle-db', 'UID' => shnergle,                                 'PWD' => '$Hnergle1');
+$coninfo = array('Database' => 'shnergle-db', 'UID' => 'shnergle',
+                 'PWD' => '$Hnergle1');
 $sql = sqlsrv_connect('tcp:r7g4obkx8p.database.windows.net,1433', $coninfo);
 if (!$sql)
 	die('Database Connection Error!');
