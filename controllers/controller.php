@@ -40,7 +40,7 @@ class Controller {
 		    die(print_r(sqlsrv_errors(), true));
 		$result = array();
 		while ($row = sqlsrv_fetch_array($qry, SQLSRV_FETCH_ASSOC))
-		      echo $result[] = $row;
+		      $result[] = $row;
 		sqlsrv_free_stmt($qry);
 		return $result;
 	}
