@@ -4,7 +4,7 @@
 <div class="page-header">
   <h1>Users</h1>
 </div>
-<button type="button" class="btn btn-success">Success</button>
+<p style="text-align: right"><a href="/?controller=user&action=add">New</a></p>
 <table class="table table-striped table-bordered">
   <tr>
     <th>ID</th>
@@ -17,12 +17,21 @@
       <td>{$entry['facebook_id']}</td>
       <td>
         <div class="btn-group">
-          <a href="/?controller=user&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</button>
-          <a href="/?controller=user&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</button>
-          <a href="/?controller=user&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</button>
+          <a href="/?controller=user&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
+          <a href="/?controller=user&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
+          <a href="/?controller=user&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
         </div>
       </td>
     </tr>
   {/foreach}
 </table>
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#" class="active">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
 {/block}
