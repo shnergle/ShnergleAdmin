@@ -26,7 +26,7 @@
         {if $auth}
           <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active">
+              <li>
                 <a href="/">Dashboard</a>
               </li>
               <li>
