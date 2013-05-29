@@ -28,6 +28,8 @@ if (empty($_SESSION['auth']) && $gcontroller != 'main' &&
 }
 
 $controller = ucfirst($gcontroller);
+if (!class_exists($controller))
+	$controller = 'Controller';
 $controller = new $controller($gcontroller, $gaction, $smarty, $sql);
 $controller->$gaction();
 
