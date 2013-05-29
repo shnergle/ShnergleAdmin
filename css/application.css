@@ -8,6 +8,14 @@ body.main.signin {
 	background-color: #eee;
 }
 
+td {
+	white-space: nowrap;
+}
+
+#container {
+	padding: 5px;
+}
+
 .form-signin {
 	max-width: 330px;
 	padding: 15px;
