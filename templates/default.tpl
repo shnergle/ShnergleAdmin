@@ -33,6 +33,9 @@
                 <a href="/?controller=user">Users</a>
               </li>
               <li>
+                <a href="/?controller=venue">Venues</a>
+              </li>
+              <li>
                 <a href="#">Images</a>
               </li>
             </ul>

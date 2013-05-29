@@ -22,9 +22,9 @@
         {/foreach}
         <td>
           <div class="btn-group">
-            <a href="/?controller={lower($controller)}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
-            <a href="/?controller={lower($controller)}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
-            <a href="/?controller={lower($controller)}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
+            <a href="/?controller={$controller|lower}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
+            <a href="/?controller={$controller|lower}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
+            <a href="/?controller={$controller|lower}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
           </div>
         </td>
       </tr>
