@@ -24,16 +24,16 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="#">Dashboard</a>
+							<a href="/">Dashboard</a>
 						</li>
 						<li>
-							<a href="#about">Users</a>
+							<a href="/?controller=user">Users</a>
 						</li>
 						<li>
-							<a href="#contact">Images</a>
+							<a href="#">Images</a>
 						</li>
 						<li>
-							<a href="?controller=main&action=logout">Log Out</a>
+							<a href="/?controller=main&action=logout">Log Out</a>
 						</li>
 					</ul>
 				</div>

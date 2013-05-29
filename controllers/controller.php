@@ -29,5 +29,10 @@ class Controller {
 		$this->session['flash'] = $message;
 		$this->session['flashtype'] = $type;
 	}
+	function render($name = null) {
+		if (empty($name))
+			$name = $this->action;
+		$this->smarty->render($this->controller . $name . '.tpl');
+	}
 }
 ?>

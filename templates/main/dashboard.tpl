@@ -1,9 +1,6 @@
 {extends '../default.tpl'}
 {block "title" prepend}Dashboard{/block}
 {block "content"}
-<div class="alert alert-danger">...</div>
-<div class="alert alert-success">...</div>
-<div class="alert alert-info">...</div>
 		<div class="page-header">
 		  <h1>Dashboard</h1>
 		</div>

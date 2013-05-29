@@ -4,7 +4,7 @@ class Main extends Controller {
 		if ($this->auth)
 			$this->dashboard();
 		else
-			$this->smarty->display('main/index.tpl');
+			$this->render();
 	}
 	function noAuth() {
 		$this->redirect();
@@ -23,7 +23,7 @@ class Main extends Controller {
 		$this->redirect();
 	}
 	function dashboard() {
-		$this->smarty->display('main/dashboard.tpl');
+		$this->render();
 	}
 }
 ?>
