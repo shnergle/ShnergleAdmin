@@ -23,7 +23,7 @@ class Main extends Controller {
 		$this->redirect();
 	}
 	function dashboard() {
-		$this->render();
+		$this->render('dashboard');
 	}
 }
 ?>
