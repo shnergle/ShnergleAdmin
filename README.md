@@ -1,4 +1,4 @@
 ShnergleAdmin
 =============
 
-CakePHP based admin interface for Shnergle
+Admin Interface for Shnergle
