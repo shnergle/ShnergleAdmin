@@ -32,7 +32,17 @@ class Controller {
 		$this->smarty->assign(get_object_vars($this));
 		if (empty($name))
 			$name = $this->action;
-		$this->smarty->display($this->controller . '/' . $name . '.tpl');
+		$this->smarty->display(strtolower($this->controller) . '/' . $name .
+		                       '.tpl');
+	}
+	function query($query) {
+		if (($qry = sqlsrv_query($this->sql, $query)) === false)
+		    die(print_r(sqlsrv_errors(), true));
+		$result = array();
+		while ($row = sqlsrv_fetch_array($qry, SQLSRV_FETCH_ASSOC))
+		      echo $result[] = $row;
+		sqlsrv_free_stmt($qry);
+		return $result;
 	}
 }
 ?>
