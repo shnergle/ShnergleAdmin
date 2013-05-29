@@ -35,7 +35,7 @@
               <li>
                 <a href="#">Images</a>
               </li>
-              <li>
+              <li class="pull-right">
                 <a href="/?controller=main&action=logout">Log Out</a>
               </li>
             </ul>
