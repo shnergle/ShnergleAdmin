@@ -65,7 +65,7 @@ class Controller {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
-			$table = strtolower($this->controller) + 's');
+			$table = strtolower($this->controller) + 's';
 		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
 		                        ' WHERE id = \'' . $id . '\'')[0];
 	}
