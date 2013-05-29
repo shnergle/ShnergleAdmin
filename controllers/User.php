@@ -5,6 +5,8 @@ class User extends Controller {
 		$this->render();
 	}
 	function view() {
+		$this->entry = $this->query('SELECT * FROM users WHERE id = ' .
+		                            $this-id);
 		$this->render();
 	}
 	function add() {
