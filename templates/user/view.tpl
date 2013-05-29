@@ -13,8 +13,8 @@
   {/foreach}
 </table>
 <div class="btn-group">
-  <a href="/?controller=user&action=index&id={$id}" class="btn btn-primary btn-small">Overview</a>
-  <a href="/?controller=user&action=edit&id={$id}" class="btn btn-warning btn-small">Edit</a>
-  <a href="/?controller=user&action=delete&id={$id}" class="btn btn-danger btn-small">Delete</a>
+  <a href="/?controller=user&action=index&id={$params->id}" class="btn btn-primary btn-small">Overview</a>
+  <a href="/?controller=user&action=edit&id={$params->id}" class="btn btn-warning btn-small">Edit</a>
+  <a href="/?controller=user&action=delete&id={$params->id}" class="btn btn-danger btn-small">Delete</a>
 </div>
 {/block}
