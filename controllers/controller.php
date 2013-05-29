@@ -10,6 +10,7 @@ class Controller {
 		$this->smarty->assign('controller', $this->controller);
 		$this->smarty->assign('action', $this->action);
 		$this->auth = empty($_SESSION['auth']) ? false : true;
+		$this->smarty->assign('auth', $this->auth);
 		if (!empty($this->session['flash'])) {
 			$this->smarty->assign('flash', $this->session['flash']);
 			unset($this->session['flash']);
