@@ -60,7 +60,6 @@ class Controller {
 	function db_query_all($table = null) {
 		if (empty($table))
 			$table = strtolower($this->controller) . 's';
-		echo $table;
 		return $this->db_result('SELECT * FROM ' . $table);
 	}
 	function db_query_one($id = null, $table = null) {
