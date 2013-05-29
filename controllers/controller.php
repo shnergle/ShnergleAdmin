@@ -57,14 +57,14 @@ class Controller {
 	}
 	function db_query_all($table = null) {
 		if (empty($table))
-			$table = strtolower($this->controller);
+			$table = strtolower($this->controller) + 's';
 		return $this->db_result('SELECT * FROM ' . $table);
 	}
 	function db_query_one($id = null, $table = null) {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
-			$table = strtolower($this->controller);
+			$table = strtolower($this->controller + 's');
 		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
 		                        ' WHERE id = \'' . $id . '\'')[0];
 	}
@@ -72,7 +72,7 @@ class Controller {
 		if (empty($values))
 			$values = $form;
 		if (empty($table))
-			$table = strtolower($this->controller);
+			$table = strtolower($this->controller + 's');
 		$columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$fields = array_values($values);
@@ -89,7 +89,7 @@ class Controller {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
-			$table = strtolower($this->controller);
+			$table = strtolower($this->controller + 's');
 		$set = array();
 		foreach (array_keys($values) as $clause)
 			$set[] = $clause . ' = ?';
@@ -103,7 +103,7 @@ class Controller {
 		if (empty($id))
 			$table = strtolower($this->id);
 		if (empty($table))
-			$table = strtolower($this->controller);
+			$table = strtolower($this->controller + 's');
 		$this->db_query('DELETE FROM ' . $table .
 			            ' WHERE id = \'' . $id . '\'');
 	}
