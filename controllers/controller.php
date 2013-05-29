@@ -8,6 +8,7 @@ class Controller {
 		$this->params = $_GET;
 		$this->form = $_POST;
 		$this->session = &$_SESSION;
+		$this->template = '../default.tpl';
 		$this->auth = empty($_SESSION['auth']) ? false : true;
 		if (!empty($this->session['flash'])) {
 			$this->flash = $this->session['flash'];

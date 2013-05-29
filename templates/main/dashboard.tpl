@@ -1,4 +1,4 @@
-{extends '../default.tpl'}
+{extends $template}
 {block "title" prepend}Dashboard{/block}
 {block "content"}
 <div class="page-header">

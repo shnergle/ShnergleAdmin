@@ -1,4 +1,4 @@
-{extends '../default.tpl'}
+{extends $template}
 {block "title" prepend}Sign In{/block}
 {block "content"}
 <form class="form-signin" action="?controller=main&action=login" method="post">
