@@ -21,7 +21,7 @@ class Controller {
 	}
 	function redirect($controller = '', $action = '', $args) {
 		if (empty($controller))
-			$controller = $this->controller;
+			$controller = strtolower($this->controller);
 		$location = 'Location: /?controller=' . $controller .
 		            '&action=' . $action;
 		foreach ($args as $key => $value)
@@ -44,7 +44,8 @@ class Controller {
 	}
 	function db_query($query, $params = null) {
 		if (($qry = sqlsrv_query($this->sql, $query, $params)) === false)
-		    die("Query:\n" . $query . "\n---\nParameters:\n" . $params .
+		    die("Query:\n" . $query .
+				"\n---\nParameters:\n" . print_r($params) .
 				"\n---\nErrors:\n" . print_r(sqlsrv_errors(), true));
 		return $qry;
 	}
@@ -59,6 +60,7 @@ class Controller {
 	function db_query_all($table = null) {
 		if (empty($table))
 			$table = strtolower($this->controller) + 's';
+		echo $table;
 		return $this->db_result('SELECT * FROM ' . $table);
 	}
 	function db_query_one($id = null, $table = null) {
