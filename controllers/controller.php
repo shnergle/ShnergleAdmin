@@ -1,12 +1,13 @@
 <?php
 class Controller {
-	function __construct($controller, $action, $smarty) {
+	function __construct($controller, $action, $smarty, $mssql) {
 		$this->controller = $controller;
 		$this->action = $action;
+		$this->smarty = $smarty;
+		$this->mssql = $mssql;
 		$this->params = $_GET;
 		$this->form = $_POST;
 		$this->session = &$_SESSION;
-		$this->smarty = $smarty;
 		$this->auth = empty($_SESSION['auth']) ? false : true;
 		if (!empty($this->session['flash'])) {
 			$this->flash = $this->session['flash'];

@@ -8,6 +8,12 @@ spl_autoload_register(function ($class) {
 
 session_start();
 
+$mssql = mssql_connect('r7g4obkx8p.database.windows.net:1433', 'shnergle',
+                      '$Hnergle1');
+if (!$mssql)
+	die('Database Connection Error!');
+mssql_select_db('shnergle-db', $mssql);
+
 define('SMARTY_DIR', str_replace("\\", "/", getcwd()) . '/smarty/');
 require_once SMARTY_DIR . 'Smarty.class.php';
 $smarty = new Smarty();
@@ -22,6 +28,8 @@ if (empty($_SESSION['auth']) && $gcontroller != 'main' &&
 }
 
 $controller = ucfirst($gcontroller);
-$controller = new $controller($gcontroller, $gaction, $smarty);
+$controller = new $controller($gcontroller, $gaction, $smarty, $mssql);
 $controller->$gaction();
+
+mssql_close($mssql);
 ?>
