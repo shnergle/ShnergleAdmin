@@ -30,7 +30,7 @@ if (empty($_SESSION['auth']) && $gcontroller != 'main' &&
 $controller = ucfirst($gcontroller);
 if (!class_exists($controller))
 	$controller = 'Controller';
-$controller = new $controller($controller, $gaction, $smarty, $sql);
+$controller = new $controller(ucfirst($gcontroller), $gaction, $smarty, $sql);
 $controller->$gaction();
 
 sqlsrv_close($sql);
