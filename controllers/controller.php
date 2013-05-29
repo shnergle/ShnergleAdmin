@@ -137,7 +137,7 @@ class Controller {
 	}
 	function delete_action() {
 		$this->db_delete();
-		$this->flash('<strong>Entry deleted!</strong>', 'success')
+		$this->flash('<strong>Entry deleted!</strong>', 'success');
 		$this->redirect();
 	}
 }
