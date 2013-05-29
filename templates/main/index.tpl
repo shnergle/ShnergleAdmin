@@ -1,5 +1,5 @@
 {extends '../default.tpl'}
-{block "title" append}Sign In{/block}
+{block "title" prepend}Sign In{/block}
 {block "content"}
 <form class="form-signin" action="?controller=main&action=login" method="post">
   <h2 class="form-signin-heading">Please sign in</h2>

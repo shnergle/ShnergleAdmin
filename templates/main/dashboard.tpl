@@ -1,5 +1,5 @@
 {extends '../default.tpl'}
-{block "title" append}Dashboard{/block}
+{block "title" prepend}Dashboard{/block}
 {block "content"}
 <div class="alert alert-danger">...</div>
 <div class="alert alert-success">...</div>
