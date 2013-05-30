@@ -26,22 +26,22 @@
         {if $auth}
           <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-              <li>
+              <li{if strpos($slug, 'media', 0) === 0} class="active"{/if}>
                 <a href="/?controller=media">Media</a>
               </li>
-              <li class="dropdown">
+              <li{if strpos($slug, 'post', 0) === 0} class="active"{/if}>
                 <a href="/?controller=posts">Posts</a>
               </li>
-              <li>
+              <li{if strpos($slug, 'promotion', 0) === 0} class="active"{/if}>
                 <a href="/?controller=promotions">Promotions</a>
               </li>
-              <li>
+              <li{if strpos($slug, 'user', 0) === 0} class="active"{/if}>
                 <a href="/?controller=users">Users</a>
               </li>
-              <li>
+              <li{if strpos($slug, 'venue', 0) === 0} class="active"{/if}>
                 <a href="/?controller=venues">Venues</a>
               </li>
-              <li>
+              <li{if strpos($slug, 'image', 0) === 0} class="active"{/if}>
                 <a href="/?controller=images">Images</a>
               </li>
             </ul>
@@ -60,10 +60,14 @@
           {$flash}
         </div>
       {/if}
-      {if $slug eq 'posts'}
+      {if strpos($slug, 'post', 0) === 0}
         <ul class="nav nav-tabs nav-justified">
-          <li><a href="/?controller=posts">Posts</a></li>
-          <li><a href="/?controller=post_views">PostViews</a></li>
+          <li{if $slug eq 'posts'} class="active"{/if}>
+            <a href="/?controller=posts">Posts</a>
+          </li>
+          <li{if $slug eq 'post_views'} class="active"{/if}>
+            <a href="/?controller=post_views">PostViews</a>
+          </li>
         </ul>
       {/if}
       {block "content"}{/block}
