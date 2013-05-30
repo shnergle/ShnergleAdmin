@@ -89,7 +89,7 @@ class Controller {
 	}
 	function db_insert($values = null, $table = null) {
 		if (empty($values))
-			$values = $form;
+			$values = $this->form;
 		if (empty($table))
 			$table = $this->slug;
 		$columns = array_keys($values);
