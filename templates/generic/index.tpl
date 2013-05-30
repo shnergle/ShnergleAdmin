@@ -20,7 +20,7 @@
         {foreach $entries as $entry}
           <tr>
             {foreach $entry as $value}
-              <td>{if $value eq null}&lt;null&gt;{else}{$value}{/if}</td>
+              <td>{$value}</td>
             {/foreach}
             <td>
               <div class="btn-group">
