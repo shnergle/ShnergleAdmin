@@ -92,8 +92,9 @@ class Controller {
 			$values = $this->form;
 		if (empty($table))
 			$table = $this->slug;
-		$columns = implode(', ', array_keys($values));
+    $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
+		$columns = implode(', ', $columns);
 		$fields = array_values($values);
 		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
 			                     ') VALUES (' . $placeholders . '); ' .
