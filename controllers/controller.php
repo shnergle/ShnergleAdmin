@@ -68,7 +68,7 @@ class Controller {
       $page = empty($params['page']) ? 1 : $params['page'];
 		if (empty($table))
 			$table = $this->slug;
-		return $this->db_result('SELECT * FROM ' . $table . ' OFFSET ' .
+		return $this->db_result('SELECT * FROM ' . $table . ' ORDER BY id OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
                             ' ROWS ONLY');
@@ -90,8 +90,8 @@ class Controller {
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$fields = array_values($values);
 		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
-			                  ') VALUES (' . $placeholders . '); ' .
-							  'SELECT SCOPE_IDENTITY()', $fields);
+			                     ') VALUES (' . $placeholders . '); ' .
+							             'SELECT SCOPE_IDENTITY()', $fields);
 		sqlsrv_next_result($qry); 
 		sqlsrv_fetch($qry); 
 		return sqlsrv_get_field($qry, 0); 
