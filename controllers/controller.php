@@ -150,7 +150,7 @@ class Controller {
 	}
 	function edit_action() {
 		$this->db_update();
-		$this->redirect(null, 'view', array('id' => $this->id));
+		$this->redirect(null, 'view', array('id' => $this->params['id']));
 	}
 	function delete() {
 		$this->render();
