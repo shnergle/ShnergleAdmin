@@ -4,5 +4,16 @@
 <div class="page-header">
   <h1>Dashboard</h1>
 </div>
-<p>Nothing interesting here!</p>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Table</th>
+    <th>Entries</th>
+  </tr>
+  {foreach $counts as $key => $value}
+    <tr>
+      <td>{$key}</td>
+      <td>{$value}</td>
+    </tr>
+  {/foreach}
+</table>
 {/block}
