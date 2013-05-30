@@ -135,7 +135,6 @@ class Controller {
 	}
 	function view() {
 		$this->entry = $this->db_query_one();
-    print_r($this->entry);
 		$this->render();
 	}
 	function add() {
