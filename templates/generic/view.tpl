@@ -13,7 +13,7 @@
   {/foreach}
 </table>
 <div class="btn-group" style="float: right">
-  <a href="/?controller={$slug}&action=edit&id={$params['id']}" class="btn btn-warning btn-small">Edit</a>
-  <a href="/?controller={$slug}&action=delete&id={$params['id']}" class="btn btn-danger btn-small">Delete</a>
+  <a href="/?controller={$slug}&action=edit&id={$params['id']}" class="btn btn-warning">Edit</a>
+  <a href="/?controller={$slug}&action=delete&id={$params['id']}" class="btn btn-danger">Delete</a>
 </div>
 {/block}

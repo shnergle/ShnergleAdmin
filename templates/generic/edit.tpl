@@ -11,8 +11,8 @@
   {/foreach}
   <p>&nbsp;</p>
   <div class="btn-group" style="float: right">
-    <button type="reset" class="btn btn-danger btn-small">Reset</button>
-    <button type="submit" class="btn btn-success btn-small">Save</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+    <button type="submit" class="btn btn-success">Save</button>
   </div>
 </form>
 {/block}
