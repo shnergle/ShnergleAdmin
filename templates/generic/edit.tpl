@@ -4,7 +4,7 @@
 <div class="page-header">
   <h1>{$controller}: View</h1>
 </div>
-<form action="/?controller={$slug}&action={$action}_action{if !empty($params['id'])}&id={$id}{/if}">
+<form action="/?controller={$slug}&action={$action}_action{if !empty($params['id'])}&id={$id}{/if}" method="post">
   {block "specific"}
     {if $action eq 'edit'}
       {foreach $entry as $key => $value}
