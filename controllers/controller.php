@@ -104,7 +104,7 @@ class Controller {
 	}
 	function db_update($values = null, $id = null, $table = null) {
 		if (empty($values))
-			$values = $form;
+			$values = $this->form;
 		if (empty($id))
 			$id = $this->params['id'];
 		if (empty($table))
