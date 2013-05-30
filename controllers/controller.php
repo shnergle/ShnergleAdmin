@@ -63,6 +63,12 @@ class Controller {
 			$table = $this->slug;
 		return $this->db_result('SELECT COUNT(*) as cnt FROM ' . $table)[0]['cnt'];
   }
+  
+  function db_columns($table = null) {
+		if (empty($table))
+			$table = $this->slug;
+		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
+  }
 	function db_query_all($page = null, $table = null) {
     if (empty($page))
       $page = empty($params['page']) ? 1 : $params['page'];
@@ -131,7 +137,7 @@ class Controller {
 		$this->render();
 	}
 	function add() {
-    $this->columns = array_keys($this->db_query_all()[0]);
+    $this->columns = $this->db_columns();
 		$this->render('edit');
 	}
 	function add_action() {

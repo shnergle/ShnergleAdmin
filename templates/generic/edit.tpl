@@ -12,8 +12,8 @@
     {/foreach}
   {else}
     {foreach $columns as $column}
-      <label for="{$column}">{$column}</label>
-      <input type="text" id="{$column}" name="{$column}">
+      <label for="{$column['COLUMN_NAME']}">{$column['COLUMN_NAME']}</label>
+      <input type="text" id="{$column['COLUMN_NAME']}" name="{$column['COLUMN_NAME']}">
     {/foreach}
   {/if}
   <p>&nbsp;</p>
