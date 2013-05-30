@@ -58,10 +58,20 @@ class Controller {
 		sqlsrv_free_stmt($qry);
 		return $result;
 	}
-	function db_query_all($table = null) {
+  function db_count($table = null) {
 		if (empty($table))
 			$table = $this->slug;
-		return $this->db_result('SELECT * FROM ' . $table);
+		return $this->db_result('SELECT COUNT(*) as cnt FROM ' . $table)[0]['cnt'];
+  }
+	function db_query_all($page = null, $table = null) {
+    if (empty($page))
+      $page = empty($params['page']) ? 1 : $params['page'];
+		if (empty($table))
+			$table = $this->slug;
+		return $this->db_result('SELECT * FROM ' . $table . ' OFFSET ' .
+                            ($page - 1) * ENTRIES_PER_PAGE .
+                            ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
+                            ' ROWS ONLY');
 	}
 	function db_query_one($id = null, $table = null) {
 		if (empty($id))
@@ -112,6 +122,7 @@ class Controller {
 	}
 	function index() {
 		$this->entries = $this->db_query_all();
+    $this->pages = ceil($this->db_count() / ENTRIES_PER_PAGE);
 		$this->render();
 	}
 	function view() {

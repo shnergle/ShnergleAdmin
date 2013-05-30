@@ -34,13 +34,21 @@
   </div>
   <div style="text-align: center">
     <ul class="pagination">
-      <li><a href="#">&laquo;</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li class="active"><span>3</span></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">&raquo;</a></li>
+      {if $params['page'] lt 2}
+        <li class="disabled"><span>&laquo;</span></li>
+      {else}
+        <li><a href="/?controller={$slug}&page={$params['page'] - 1}">&laquo;</a></li>
+      {/if}
+      {for $i=1 to $pages}
+        <li{if $i eq $params['page']} class="active"{/if}>
+          <a href="/?controller={$slug}&page={$i}">{$i}</a>
+        </li>
+      {/for}
+      {if $params['page'] gte $pages}
+        <li class="disabled"><span>&raquo;</span></li>
+      {else}
+        <li><a href="/?controller={$slug}&page={$params['page'] + 1}">&raquo;</a></li>
+      {/if}
     </ul>
   </div>
 {else}
