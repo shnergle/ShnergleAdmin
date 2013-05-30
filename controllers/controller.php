@@ -119,6 +119,7 @@ class Controller {
 		$this->render();
 	}
 	function add() {
+    $this->columns = array_keys($this->db_query_all()[0]);
 		$this->render('edit');
 	}
 	function add_action() {
