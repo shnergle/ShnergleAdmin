@@ -10,26 +10,28 @@
 {if $entries}
   <div style="overflow-x: auto">
     <table class="table table-striped table-bordered">
-      <tr>
-        {foreach $entries[0] as $key => $value}
-          <th>{$key}</th>
-        {/foreach}
-        <th>Actions</th>
-      </tr>
-      {foreach $entries as $entry}
+      {block "specific"}
         <tr>
-          {foreach $entry as $value}
-            <td>{$value}</td>
+          {foreach $entries[0] as $key => $value}
+            <th>{$key}</th>
           {/foreach}
-          <td>
-            <div class="btn-group">
-              <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
-              <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
-              <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
-            </div>
-          </td>
+          <th>Actions</th>
         </tr>
-      {/foreach}
+        {foreach $entries as $entry}
+          <tr>
+            {foreach $entry as $value}
+              <td>{$value}</td>
+            {/foreach}
+            <td>
+              <div class="btn-group">
+                <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
+                <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
+                <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
+              </div>
+            </td>
+          </tr>
+        {/foreach}
+      {/block}
     </table>
   </div>
   <div style="text-align: center">
