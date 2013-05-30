@@ -30,10 +30,7 @@
                 <a href="/?controller=media">Media</a>
               </li>
               <li class="dropdown">
-                <a href="/?controller=posts" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/?controller=post_views">Post Views</a></li>
-                </ul>
+                <a href="/?controller=posts">Posts</a>
               </li>
               <li>
                 <a href="/?controller=promotions">Promotions</a>
@@ -62,6 +59,12 @@
         <div class="alert {if isset($flashtype)}alert-{$flashtype}{/if}">
           {$flash}
         </div>
+      {/if}
+      {if $slug eq 'posts'}
+        <ul class="nav nav-tabs nav-justified">
+          <li><a href="/?controller=posts">Posts</a></li>
+          <li><a href="/?controller=post_views">PostViews</a></li>
+        </ul>
       {/if}
       {block "content"}{/block}
     </div>
