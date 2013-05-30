@@ -9,6 +9,7 @@
     <label for="{$key}">{$key}</label>
     <input type="text" value="{$value}" id="{$key}" name="{$key}">
   {/foreach}
+  <p>&nbsp;</p>
   <div class="btn-group" style="text-align: right">
     <button type="reset" class="btn btn-danger btn-small">Reset</button>
     <button type="submit" class="btn btn-success btn-small">Save</button>
