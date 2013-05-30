@@ -27,12 +27,12 @@ if (empty($_SESSION['auth']) && $gcontroller != 'main' &&
 		$gaction = 'noAuth';
 }
 
-$controller = preg_replace_callback('/_([a-z])/', function ($match) {
+$controller = $realcontroller = preg_replace_callback('/_([a-z])/', function ($match) {
     return strtoupper($match[1]);
 }, ucfirst($gcontroller));
 if (!class_exists($controller))
 	$controller = 'Controller';
-$controller = new $controller($controller, $gcontroller, $gaction, $smarty, $sql);
+$controller = new $controller($realcontroller, $gcontroller, $gaction, $smarty, $sql);
 $controller->$gaction();
 
 sqlsrv_close($sql);
