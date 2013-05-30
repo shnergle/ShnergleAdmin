@@ -1,7 +1,8 @@
 <?php
 class Controller {
-	function __construct($controller, $action, $smarty, $sql) {
+	function __construct($controller, $slug, $action, $smarty, $sql) {
 		$this->controller = $controller;
+    $this->slug = $slug;
 		$this->action = $action;
 		$this->smarty = $smarty;
 		$this->sql = $sql;
@@ -21,7 +22,7 @@ class Controller {
 	}
 	function redirect($controller = '', $action = '', $args) {
 		if (empty($controller))
-			$controller = strtolower($this->controller);
+			$controller = $this->slug;
 		$location = 'Location: /?controller=' . $controller .
 		            '&action=' . $action;
 		foreach ($args as $key => $value)
@@ -36,7 +37,7 @@ class Controller {
 		$this->smarty->assign(get_object_vars($this));
 		if (empty($name))
 			$name = $this->action;
-		$dir = strtolower($this->controller);
+		$dir = $this->slug;
 		$file = '/' . $name . '.tpl';
 		if (!file_exists('templates/' . $dir . $file))
 			$dir = 'generic';
@@ -59,14 +60,14 @@ class Controller {
 	}
 	function db_query_all($table = null) {
 		if (empty($table))
-			$table = strtolower($this->controller) . 's';
+			$table = $this->slug;
 		return $this->db_result('SELECT * FROM ' . $table);
 	}
 	function db_query_one($id = null, $table = null) {
 		if (empty($id))
 			$id = $this->params['id'];
 		if (empty($table))
-			$table = strtolower($this->controller) . 's';
+			$table = $this->slug;
 		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
 		                        ' WHERE id = \'' . $id . '\'')[0];
 	}
@@ -74,7 +75,7 @@ class Controller {
 		if (empty($values))
 			$values = $form;
 		if (empty($table))
-			$table = strtolower($this->controller) . 's';
+			$table = $this->slug;
 		$columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$fields = array_values($values);
@@ -91,7 +92,7 @@ class Controller {
 		if (empty($id))
 			$id = $this->params['id'];
 		if (empty($table))
-			$table = strtolower($this->controller) . 's';
+			$table = $this->slug;
 		$set = array();
 		foreach (array_keys($values) as $clause)
 			$set[] = $clause . ' = ?';
@@ -105,7 +106,7 @@ class Controller {
 		if (empty($id))
 			$id = $this->params['id'];
 		if (empty($table))
-			$table = strtolower($this->controller) . 's';
+			$table = $this->slug;
 		$this->db_query('DELETE FROM ' . $table .
 			            ' WHERE id = \'' . $id . '\'');
 	}

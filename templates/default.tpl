@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/css/application.css" rel="stylesheet" type="text/css">
   </head>
-  <body class="{$controller|lower} {$action}">
+  <body class="{$slug} {$action}">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -29,20 +29,23 @@
               <li>
                 <a href="/?controller=media">Media</a>
               </li>
-              <li>
-                <a href="/?controller=post">Posts</a>
+              <li class="dropdown">
+                <a href="/?controller=posts" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/?controller=post_views">Post Views</a></li>
+                </ul>
               </li>
               <li>
-                <a href="/?controller=promotion">Promotions</a>
+                <a href="/?controller=promotions">Promotions</a>
               </li>
               <li>
-                <a href="/?controller=user">Users</a>
+                <a href="/?controller=users">Users</a>
               </li>
               <li>
-                <a href="/?controller=venue">Venues</a>
+                <a href="/?controller=venues">Venues</a>
               </li>
               <li>
-                <a href="/?controller=image">Images</a>
+                <a href="/?controller=images">Images</a>
               </li>
             </ul>
             <ul class="nav navbar-nav pull-right">

@@ -1,11 +1,11 @@
 {extends $template}
-{block "title" prepend}{$controller}s{/block}
+{block "title" prepend}{$controller}{/block}
 {block "content"}
 <div class="page-header">
-  <h1>{$controller}s</h1>
+  <h1>{$controller}</h1>
 </div>
 <p style="text-align: right">
-  <a href="/?controller=user&action=add" class="btn btn-success">New</a>
+  <a href="/?controller={$slug}&action=add" class="btn btn-success">New</a>
 </p>
 {if $entries}
   <div style="overflow-x: auto">
@@ -23,9 +23,9 @@
           {/foreach}
           <td>
             <div class="btn-group">
-              <a href="/?controller={$controller|lower}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
-              <a href="/?controller={$controller|lower}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
-              <a href="/?controller={$controller|lower}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
+              <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
+              <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
+              <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
             </div>
           </td>
         </tr>
