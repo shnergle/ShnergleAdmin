@@ -5,8 +5,8 @@
   <h1>{$controller}: Delete</h1>
 </div>
 <p>Do you really want to delete this {$slug} with id {$params['id']}?</p>
-<p style="text-align: right">
+<div class="btn-group" style="text-align: right">
   <a href="javascript:history.go(-1)" class="btn btn-default">No</a>
   <a href="/?controller={$slug}&action=delete_action&id={$params['id']}" class="btn btn-danger">Yes</a>
-</p>
+</div>
 {/block}
