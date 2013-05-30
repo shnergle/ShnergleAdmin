@@ -65,8 +65,62 @@
           <li{if $slug eq 'posts'} class="active"{/if}>
             <a href="/?controller=posts">Posts</a>
           </li>
+          <li{if $slug eq 'post_likes'} class="active"{/if}>
+            <a href="/?controller=post_likes">PostLikes</a>
+          </li>
+          <li{if $slug eq 'post_reports'} class="active"{/if}>
+            <a href="/?controller=post_reports">PostReports</a>
+          </li>
+          <li{if $slug eq 'post_shares'} class="active"{/if}>
+            <a href="/?controller=post_shares">PostShares</a>
+          </li>
           <li{if $slug eq 'post_views'} class="active"{/if}>
             <a href="/?controller=post_views">PostViews</a>
+          </li>
+        </ul>
+      {elseif strpos($slug, 'promotion', 0) === 0}
+        <ul class="nav nav-tabs nav-justified">
+          <li{if $slug eq 'promotions'} class="active"{/if}>
+            <a href="/?controller=promotions">Promotions</a>
+          </li>
+          <li{if $slug eq 'promotion_redemptions'} class="active"{/if}>
+            <a href="/?controller=promotion_redemptions">PromotionRedemptions</a>
+          </li>
+          <li{if $slug eq 'promotion_views'} class="active"{/if}>
+            <a href="/?controller=promotion_views">PromotionViews</a>
+          </li>
+        </ul>
+      {elseif strpos($slug, 'user', 0) === 0}
+        <ul class="nav nav-tabs nav-justified">
+          <li{if $slug eq 'users'} class="active"{/if}>
+            <a href="/?controller=users">Users</a>
+          </li>
+          <li{if $slug eq 'user_searches'} class="active"{/if}>
+            <a href="/?controller=user_searches">UserSearches</a>
+          </li>
+        </ul>
+      {elseif strpos($slug, 'venue', 0) === 0}
+        <ul class="nav nav-tabs nav-justified">
+          <li{if $slug eq 'venues'} class="active"{/if}>
+            <a href="/?controller=venues">Venues</a>
+          </li>
+          <li{if $slug eq 'venue_categories'} class="active"{/if}>
+            <a href="/?controller=venue_categories">VenueCategories</a>
+          </li>
+          <li{if $slug eq 'venue_favourites'} class="active"{/if}>
+            <a href="/?controller=venue_favourites">VenueFavourites</a>
+          </li>
+          <li{if $slug eq 'venue_loads'} class="active"{/if}>
+            <a href="/?controller=venue_loads">VenueLoads</a>
+          </li>
+          <li{if $slug eq 'venue_rsvps'} class="active"{/if}>
+            <a href="/?controller=venue_rsvps">VenueRsvps</a>
+          </li>
+          <li{if $slug eq 'venue_shares'} class="active"{/if}>
+            <a href="/?controller=venue_shares">VenueShares</a>
+          </li>
+          <li{if $slug eq 'venue_views'} class="active"{/if}>
+            <a href="/?controller=venue_views">VenueViews</a>
           </li>
         </ul>
       {/if}
