@@ -9,7 +9,7 @@
     {foreach $entry as $key => $value}
       <tr>
         <th>{$key}</th>
-        <td>{$value}</td>
+        <td>{if $value eq null}&lt;null&gt;{else}{$value}{/if}</td>
       </tr>
     {/foreach}
   {/block}

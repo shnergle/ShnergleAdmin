@@ -95,7 +95,9 @@ class Controller {
     $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$columns = implode(', ', $columns);
-		$fields = array_values($values);
+		$fields = array();
+    foreach ($values as $value)
+      $fields[] = ($value == '<null>') ? null : $value;
 		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
 			                     ') VALUES (' . $placeholders . '); ' .
 							             'SELECT SCOPE_IDENTITY()', $fields);
@@ -115,7 +117,9 @@ class Controller {
 			$set[] = $clause . ' = ?';
 		$set = implode(', ', $set);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
-		$fields = array_values($values);
+		$fields = array();
+    foreach ($values as $value)
+      $fields[] = ($value == '<null>') ? null : $value;
 		$qry = $this->db_query('UPDATE ' . $table . ' SET ' . $set .
 			                   ' WHERE id = \'' . $id . '\'', $fields);
 	}
@@ -135,7 +139,6 @@ class Controller {
 	}
 	function view() {
 		$this->entry = $this->db_query_one();
-    print_r($this->entry);
 		$this->render();
 	}
 	function add() {
