@@ -114,7 +114,7 @@ class Controller {
 		foreach (array_keys($values) as $clause)
 			$set[] = $clause . ' = ?';
 		$set = implode(', ', $set);
-		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
+		$placeholders = '?' . str_repeat(', ?', count($set) - 1);
 		$fields = array_values($values);
 		$qry = $this->db_query('UPDATE ' . $table . ' SET ' . $set .
 			                   ' WHERE id = \'' . $id . '\'', $fields);
