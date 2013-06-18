@@ -94,8 +94,6 @@ class Controller {
 		if (empty($table))
             $table = $this->slug;
         
-        // DEV Hack to work brute force mode
-        $this->db_query('SET IDENTITY_INSERT ' . $table . ' ON');
         
         $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
@@ -105,8 +103,6 @@ class Controller {
 			                     ') VALUES (' . $placeholders . '); ' .
                                  'SELECT SCOPE_IDENTITY()', $fields);
         
-        // DEV Hack end
-        $this->db_query('SET IDENTITY_INSERT ' . $table . ' OFF');
         
         sqlsrv_next_result($qry); 
 		sqlsrv_fetch($qry); 
@@ -147,7 +143,8 @@ class Controller {
 		$this->render();
 	}
 	function add() {
-    $this->columns = $this->db_columns();
+        $this->columns = $this->db_columns();
+        unset($this->columns[0]);        
 		$this->render('edit');
 	}
 	function add_action() {
