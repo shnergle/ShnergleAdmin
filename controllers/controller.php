@@ -106,7 +106,7 @@ class Controller {
                                  'SELECT SCOPE_IDENTITY()', $fields);
         
         // DEV Hack end
-        $this->db_query('SET IDENTITY_INSERT '$table' OFF');
+        $this->db_query('SET IDENTITY_INSERT ' . $table . ' OFF');
         
         sqlsrv_next_result($qry); 
 		sqlsrv_fetch($qry); 
