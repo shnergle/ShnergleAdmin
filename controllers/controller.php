@@ -87,19 +87,28 @@ class Controller {
 		return $this->db_result('SELECT TOP(1) * FROM ' . $table .
 		                        ' WHERE id = \'' . $id . '\'')[0];
 	}
-	function db_insert($values = null, $table = null) {
+    function db_insert($values = null, $table = null) {
+        
 		if (empty($values))
 			$values = $this->form;
 		if (empty($table))
-			$table = $this->slug;
-    $columns = array_keys($values);
+            $table = $this->slug;
+        
+        // DEV Hack to work brute force mode
+        $this->db_query('SET IDENTITY_INSERT '$table' ON');
+        
+        $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
 		$columns = implode(', ', $columns);
 		$fields = array_values($values);
 		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
 			                     ') VALUES (' . $placeholders . '); ' .
-							             'SELECT SCOPE_IDENTITY()', $fields);
-		sqlsrv_next_result($qry); 
+                                 'SELECT SCOPE_IDENTITY()', $fields);
+        
+        // DEV Hack end
+        $this->db_query('SET IDENTITY_INSERT '$table' OFF');
+        
+        sqlsrv_next_result($qry); 
 		sqlsrv_fetch($qry); 
 		return sqlsrv_get_field($qry, 0); 
 	}
