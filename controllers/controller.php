@@ -95,7 +95,7 @@ class Controller {
             $table = $this->slug;
         
         // DEV Hack to work brute force mode
-        $this->db_query('SET IDENTITY_INSERT '$table' ON');
+        $this->db_query('SET IDENTITY_INSERT ' . $table . ' ON');
         
         $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
