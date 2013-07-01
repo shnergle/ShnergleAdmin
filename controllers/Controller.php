@@ -71,7 +71,7 @@ class Controller {
   }
 	function db_query_all($page = null, $table = null) {
     if (empty($page))
-      $page = empty($params['page']) ? 1 : $params['page'];
+      $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
 			$table = $this->slug;
 		return $this->db_result('SELECT * FROM ' . $table . ' ORDER BY id OFFSET ' .
