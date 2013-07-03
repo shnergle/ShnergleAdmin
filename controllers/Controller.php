@@ -97,7 +97,7 @@ class Controller {
         
         $columns = array_keys($values);
 		$placeholders = '?' . str_repeat(', ?', count($columns) - 1);
-		$columns = implode(', ', $columns);
+		$columns = '[' . implode('], [', $columns) . ']';
 		$fields = array_values($values);
 		$qry = $this->db_query('INSERT INTO ' . $table . ' (' . $columns .
 			                     ') VALUES (' . $placeholders . '); ' .
