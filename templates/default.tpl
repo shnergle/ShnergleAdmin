@@ -74,9 +74,6 @@
           <li{if $slug eq 'post_shares'} class="active"{/if}>
             <a href="/?controller=post_shares">PostShares</a>
           </li>
-          <li{if $slug eq 'post_views'} class="active"{/if}>
-            <a href="/?controller=post_views">PostViews</a>
-          </li>
         </ul>
       {elseif strpos($slug, 'promotion', 0) === 0}
         <ul class="nav nav-tabs nav-justified">
@@ -107,8 +104,8 @@
           <li{if $slug eq 'venue_categories'} class="active"{/if}>
             <a href="/?controller=venue_categories">VenueCategories</a>
           </li>
-          <li{if $slug eq 'venue_favourites'} class="active"{/if}>
-            <a href="/?controller=venue_favourites">VenueFavourites</a>
+          <li{if $slug eq 'venue_followers'} class="active"{/if}>
+            <a href="/?controller=venue_followers">VenueFollowers</a>
           </li>
           <li{if $slug eq 'venue_loads'} class="active"{/if}>
             <a href="/?controller=venue_loads">VenueLoads</a>
