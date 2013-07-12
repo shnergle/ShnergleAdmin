@@ -74,6 +74,9 @@
           <li{if $slug eq 'post_shares'} class="active"{/if}>
             <a href="/?controller=post_shares">PostShares</a>
           </li>
+          <li{if $slug eq 'post_views'} class="active"{/if}>
+            <a href="/?controller=post_views">PostViews</a>
+          </li>
         </ul>
       {elseif strpos($slug, 'promotion', 0) === 0}
         <ul class="nav nav-tabs nav-justified">
@@ -82,9 +85,6 @@
           </li>
           <li{if $slug eq 'promotion_redemptions'} class="active"{/if}>
             <a href="/?controller=promotion_redemptions">PromotionRedemptions</a>
-          </li>
-          <li{if $slug eq 'promotion_views'} class="active"{/if}>
-            <a href="/?controller=promotion_views">PromotionViews</a>
           </li>
         </ul>
       {elseif strpos($slug, 'user', 0) === 0}
@@ -104,11 +104,17 @@
           <li{if $slug eq 'venue_categories'} class="active"{/if}>
             <a href="/?controller=venue_categories">VenueCategories</a>
           </li>
+          <li{if $slug eq 'venue_comments'} class="active"{/if}>
+            <a href="/?controller=venue_comments">VenueComments</a>
+          </li>
           <li{if $slug eq 'venue_followers'} class="active"{/if}>
             <a href="/?controller=venue_followers">VenueFollowers</a>
           </li>
           <li{if $slug eq 'venue_loads'} class="active"{/if}>
             <a href="/?controller=venue_loads">VenueLoads</a>
+          </li>
+          <li{if $slug eq 'venue_managers'} class="active"{/if}>
+            <a href="/?controller=venue_managers">VenueManagers</a>
           </li>
           <li{if $slug eq 'venue_rsvps'} class="active"{/if}>
             <a href="/?controller=venue_rsvps">VenueRsvps</a>
