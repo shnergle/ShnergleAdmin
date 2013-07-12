@@ -122,6 +122,9 @@
           <li{if $slug eq 'venue_shares'} class="active"{/if}>
             <a href="/?controller=venue_shares">VenueShares</a>
           </li>
+          <li{if $slug eq 'venue_staff'} class="active"{/if}>
+            <a href="/?controller=venue_staff">VenueStaff</a>
+          </li>
           <li{if $slug eq 'venue_views'} class="active"{/if}>
             <a href="/?controller=venue_views">VenueViews</a>
           </li>
