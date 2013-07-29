@@ -9,12 +9,12 @@
     {if $action eq 'edit'}
       {foreach $entry as $key => $value}
         <label for="{$key}">{$key}</label>
-        <input type="text" value="{$value}" id="{$key}" name="{$key}">
+        <input type="text" value="{$value}" id="{$key}" name="{$key}" class="form-control">
       {/foreach}
     {else}
       {foreach $columns as $column}
         <label for="{$column['COLUMN_NAME']}">{$column['COLUMN_NAME']}</label>
-        <input type="text" id="{$column['COLUMN_NAME']}" name="{$column['COLUMN_NAME']}">
+        <input type="text" id="{$column['COLUMN_NAME']}" name="{$column['COLUMN_NAME']}" class="form-control">
       {/foreach}
     {/if}
   {/block}
