@@ -51,25 +51,6 @@
       {/block}
     </table>
   </div>
-  <div style="text-align: center">
-    <ul class="pagination">
-      {if $page lt 2}
-        <li class="disabled"><span>&laquo;</span></li>
-      {else}
-        <li><a href="/?controller={$slug}&page={$page - 1}">&laquo;</a></li>
-      {/if}
-      {for $i=1 to $pages}
-        <li{if $i eq $page} class="active"{/if}>
-          <a href="/?controller={$slug}&page={$i}">{$i}</a>
-        </li>
-      {/for}
-      {if $page gte $pages}
-        <li class="disabled"><span>&raquo;</span></li>
-      {else}
-        <li><a href="/?controller={$slug}&page={$page + 1}">&raquo;</a></li>
-      {/if}
-    </ul>
-  </div>
 {else}
   <p>No entries!</p>
 {/if}
