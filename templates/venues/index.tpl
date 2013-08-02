@@ -64,7 +64,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       {if $entry['verified'] eq 0}
       <a href="/?controller={$slug}&action=auth&id={$entry['id']}" class="btn btn-default btn-small" {if $entry['official'] eq 0 or $entry['email_verified'] eq 0}disabled="disabled"{/if}>Authenticate</a>
       {else}
-      <a href="/?controller={$slug}&action=deauth&id={$entry['id']}" class="btn btn-default btn-small">Deauthenticate</a>
+      <a href="/?controller={$slug}&action=deauth&id={$entry['id']}" class="btn btn-default btn-small">Make Unofficial</a>
       {/if}
       <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
       <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
