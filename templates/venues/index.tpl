@@ -29,17 +29,18 @@
   <div class="panel">
     <div class="panel-heading">{$entry['name']}</div>
     <p>...</p>
+    <div class="btn-group">
+      <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
+      <a href="/?controller={$slug}&action=auth&id={$entry['id']}" class="btn btn-default btn-small">Authenticate</a>
+      <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
+      <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
+    </div>
+  </div>
     <ul class="list-group list-group-flush">
       {foreach $entry as $key => $value}
       <li class="list-group-item"><b>{$key}:</b> {$value}</li>
       {/foreach}
     </ul>
-    <div class="btn-group">
-      <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View</a>
-      <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
-      <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
-    </div>
-  </div>
 {/foreach}
 {else}
   <p>No entries!</p>
