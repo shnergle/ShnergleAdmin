@@ -69,6 +69,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
     </div>
     <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Category:</b> {$categories[$entry['category_id']]}</li>
       <li class="list-group-item"><b>Address:</b> {$entry['address']}</li>
       {if $entry['official'] eq 1}
       <li class="list-group-item"><b>Email:</b> {$entry['email']} <span class="label label-{if $entry['email_verified'] eq 1}success{else}danger{/if}">verified</span></li>
