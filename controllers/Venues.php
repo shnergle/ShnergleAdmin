@@ -2,15 +2,15 @@
 class Venues extends Controller {
 	function index() {
     $search = array();
-    if (!empty($this->form['venue-search']))
-      $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->form['venue-search']) . '%\'';
-    if (!empty($this->form['staff-search']))
-      $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->form['staff-search']) . '%\'';
-    if (!empty($this->form['type-search']))
-      if ($this->form['type-search'] == 'to-auth') {
+    if (!empty($this->params['venue-search']))
+      $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->params['venue-search']) . '%\'';
+    if (!empty($this->params['staff-search']))
+      $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->params['staff-search']) . '%\'';
+    if (!empty($this->params['type-search']))
+      if ($this->params['type-search'] == 'to-auth') {
         $search[] = 'email_verified = 1';
         $search[] = 'authenticated IN (0, null)';
-      } elseif ($this->form['type-search'] == 'to-veri') {
+      } elseif ($this->params['type-search'] == 'to-veri') {
         $search[] = 'email_verified = 0';
         $search[] = 'official = 1';
       } 
