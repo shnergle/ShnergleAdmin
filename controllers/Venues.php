@@ -16,7 +16,10 @@ class Venues extends Controller {
       } 
     if (!empty($search)) {
     	$this->entries = $this->db_query_all(null, null, $search);
-      $this->categories = $this->db_query_all(null, 'venue_categories');
+      $categories = $this->db_query_all(null, 'venue_categories');
+      $this->categories = array();
+      foreach ($categories as $category)
+        $this->categories[$category['id']] = $category['name'];
       $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
       $this->pages = 1;
     }
