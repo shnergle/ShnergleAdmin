@@ -35,12 +35,12 @@
       <a href="/?controller={$slug}&action=edit&id={$entry['id']}" class="btn btn-warning btn-small">Edit</a>
       <a href="/?controller={$slug}&action=delete&id={$entry['id']}" class="btn btn-danger btn-small">Delete</a>
     </div>
-  </div>
     <ul class="list-group list-group-flush">
       {foreach $entry as $key => $value}
       <li class="list-group-item"><b>{$key}:</b> {$value}</li>
       {/foreach}
     </ul>
+  </div>
 {/foreach}
 {else}
   <p>No entries!</p>
