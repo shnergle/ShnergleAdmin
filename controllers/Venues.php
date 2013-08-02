@@ -4,6 +4,8 @@ class Venues extends Controller {
     $search = array();
     if (!empty($this->form['venue-search']))
       $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->form['venue-search']) . '%\'';
+    if (!empty($this->form['staff-search']))
+      $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->form['staff-search']) . '%\'';
     if (!empty($this->form['type-search']))
       if ($this->form['type-search'] == 'to-auth') {
         $search[] = 'email_verified = 1';
@@ -12,9 +14,10 @@ class Venues extends Controller {
         $search[] = 'email_verified = 0';
         $search[] = 'official = 1';
       } 
+    $this->search = empty($search);
 		$this->entries = $this->db_query_all(null, null, $search);
     $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
-    $this->pages = ceil(count($this->entries) / ENTRIES_PER_PAGE);
+    $this->pages = 1;
 		$this->render();
 	}
 }

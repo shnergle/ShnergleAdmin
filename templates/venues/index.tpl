@@ -23,6 +23,7 @@
 <p style="text-align: right">
   <a href="/?controller={$slug}&action=add" class="btn btn-success">New</a>
 </p>
+{if $search}
 {if $entries}
   <div style="overflow-x: auto">
     <table class="table table-striped table-bordered">
@@ -71,5 +72,6 @@
   </div>
 {else}
   <p>No entries!</p>
+{/if}
 {/if}
 {/block}
