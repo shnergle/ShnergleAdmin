@@ -59,7 +59,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <p>&nbsp;</p>
-    <table class="table">
+    <table class="table width: 500px;">
       <tr>
         <th>&nbsp;</th>
         <th>Name</th>
@@ -67,7 +67,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <th>Details</th>
       </tr>
       <tr>
-        <td><p><img src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></p></td>
+        <td><img src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
         <td>Rob Tregaskes</td>
         <td>Manager</td>
         <td><button class="btn btn-primary btn-small">View</button></td>
