@@ -14,10 +14,12 @@ class Venues extends Controller {
         $search[] = 'email_verified = 0';
         $search[] = 'official = 1';
       } 
+    if (!empty($search)) {
+    	$this->entries = $this->db_query_all(null, null, $search);
+      $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
+      $this->pages = 1;
+    }
     $this->search = empty($search);
-		$this->entries = $this->db_query_all(null, null, $search);
-    $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
-    $this->pages = 1;
 		$this->render();
 	}
 }
