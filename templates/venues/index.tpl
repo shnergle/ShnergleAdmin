@@ -67,7 +67,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <th>Details</th>
       </tr>
       <tr>
-        <td><img src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
+        <td><img class="img-thumbnail" src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
         <td>Rob Tregaskes</td>
         <td>Manager</td>
         <td><button class="btn btn-primary btn-small">View</button></td>
