@@ -12,10 +12,10 @@
       <input type="radio" name="type-search" value="all" checked> All
     </label>
     <label class="radio-inline">
-      <input type="radio" name="type-search" value="to-auth" checked> Awaiting Authentication
+      <input type="radio" name="type-search" value="to-auth"> Awaiting Authentication
     </label>
     <label class="radio-inline">
-      <input type="radio" name="type-search" value="to-veri" checked> Outstanding Email Verification
+      <input type="radio" name="type-search" value="to-veri"> Outstanding Email Verification
     </label>
     <button type="submit" class="btn btn-default">Find</button>
   </form>
