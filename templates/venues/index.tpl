@@ -5,7 +5,8 @@
   <h1>{$controller}</h1>
 </div>
 <div>
-  <form method="get" action="/?controller={$slug}" class="form-inline">
+  <form method="get" action="/" class="form-inline">
+    <input type="hidden" name="controller" value="{$slug}">
     <input type="text" class="form-control" placeholder="Venue Name" name="venue-search" style="width: 250px;">
     <input type="text" class="form-control" placeholder="Staff Name" name="staff-search" style="width: 250px;">
     <label class="radio-inline">
