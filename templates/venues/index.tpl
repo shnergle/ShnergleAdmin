@@ -25,10 +25,32 @@
 </p>
 {if $search}
 {if $entries}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {foreach $entries as $entry}
   <div class="panel">
     <div class="panel-heading">{$entry['name']}</div>
-    <p>...</p>
+    {literal}
+    <script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    {/literal}
+    center: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
+    {literal}
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  {/literal}
+  map = new google.maps.Map(document.getElementById('map-canvas{$entry['id']}'),
+      mapOptions);
+      {literal}
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    {/literal}
+    <div class="pull-right" id="map-canvas{$entry['id']}"></div>
     <div class="btn-group">
       <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
       <a href="/?controller={$slug}&action=auth&id={$entry['id']}" class="btn btn-default btn-small">Authenticate</a>
