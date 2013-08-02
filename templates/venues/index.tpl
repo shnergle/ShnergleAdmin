@@ -8,7 +8,7 @@
   <form method="post" action="/?controller={$slug}" class="form-inline">
     <input type="text" class="form-control" placeholder="Venue Name" name="venue-search" style="width: 250px;">
     <input type="text" class="form-control" placeholder="Staff Name" name="staff-search" style="width: 250px;">
-    <button type="submit" value="Find" class="btn btn-default">
+    <button type="submit" class="btn btn-default">Find</button>
   </form>
 </div>
 <p style="text-align: right">
