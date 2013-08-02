@@ -56,7 +56,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
     {/literal}
-    <div style="height: 200px; width: 500px;" class="pull-right" id="map-canvas{$entry['id']}"></div>
+    <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <div class="btn-group">
       <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
       <a href="/?controller={$slug}&action=auth&id={$entry['id']}" class="btn btn-default btn-small">Authenticate</a>
