@@ -59,6 +59,21 @@ google.maps.event.addDomListener(window, 'load', initialize);
     {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <p>&nbsp;</p>
+    <table class="table">
+      <tr>
+        <th>&nbsp;</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td><img src="http://graph.facebook.com/500453065/picture" alt="Profile Picture"></td>
+        <td>Rob Tregaskes</td>
+        <td>Manager</td>
+        <td><button class="btn btn-primary btn-small">View</button></td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
     <div class="btn-group">
       <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
       {if $entry['verified'] eq 0}
