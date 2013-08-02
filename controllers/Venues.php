@@ -19,7 +19,7 @@ class Venues extends Controller {
       $categories = $this->db_query_all(null, 'venue_categories');
       $this->categories = array();
       foreach ($categories as $category)
-        $this->categories[$category['id']] = $category['name'];
+        $this->categories[$category['id']] = $category['type'];
       $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
       $this->pages = 1;
     }
