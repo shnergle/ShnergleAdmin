@@ -28,7 +28,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {foreach $entries as $entry}
   <div class="panel">
-    <div class="panel-heading">{$entry['name']}</div>
+    <div class="panel-heading"><b>{$entry['name']}</b> <span class="label label-{if $official eq 1}success{else}danger{/if}">official</span> <span class="label label-{if $verified eq 1}success{else}danger{/if}">verified</span></div>
     {literal}
     <script>
 var map;
@@ -57,6 +57,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
+    <p>&nbsp;</p>
     <div class="btn-group">
       <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
       <a href="/?controller={$slug}&action=auth&id={$entry['id']}" class="btn btn-default btn-small">Authenticate</a>
