@@ -66,7 +66,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><b>Address:</b> {$entry['address']}</li>
-      <li class="list-group-item"><b>Country:</b> {$entry['country']}</li>
       <li class="list-group-item"><b>Email:</b> {$entry['email']} <span class="label label-{if $entry['email_verified'] eq 1}success{else}danger{/if}">verified</span></li>
       <li class="list-group-item"><b>Website:</b> {$entry['website']}</li>
       <li class="list-group-item"><b>Telephone:</b> {$entry['phone']}</li>
