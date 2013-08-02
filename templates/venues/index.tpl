@@ -59,7 +59,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <p>&nbsp;</p>
-    <table class="table width: 500px;">
+    <table class="table" style="width: 500px;">
       <tr>
         <th>&nbsp;</th>
         <th>Name</th>
