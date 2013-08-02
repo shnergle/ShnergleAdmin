@@ -28,7 +28,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {foreach $entries as $entry}
   <div class="panel">
-    <div class="panel-heading"><b>{$entry['name']}</b> <span class="label label-{if $official eq 1}success{else}danger{/if}">official</span> <span class="label label-{if $verified eq 1}success{else}danger{/if}">verified</span></div>
+    <div class="panel-heading"><b>{$entry['name']}</b> <span class="label label-{if $entry['official'] eq 1}success{else}danger{/if}">official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}">verified</span></div>
     {literal}
     <script>
 var map;
