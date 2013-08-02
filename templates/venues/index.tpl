@@ -34,7 +34,7 @@
 var map;
 function initialize() {
   var mapOptions = {
-    zoom: 8,
+    zoom: 13,
     {/literal}
     center: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
     {literal}
