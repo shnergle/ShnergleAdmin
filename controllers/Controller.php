@@ -69,12 +69,21 @@ class Controller {
 			$table = $this->slug;
 		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
   }
-	function db_query_all($page = null, $table = null) {
+	function db_query_all($page = null, $table = null, $where = null) {
     if (empty($page))
       $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
 			$table = $this->slug;
-		return $this->db_result('SELECT * FROM ' . $table . ' ORDER BY id OFFSET ' .
+    if (!empty($where)) {
+      $condition = ' WHERE ';
+      if (is_string($where))
+        $condition .= $where;
+      else
+        $condition .= implode(' AND ', $where);
+    } else
+      $condition = '';
+		return $this->db_result('SELECT * FROM ' . $table . $condition .
+                            ' ORDER BY id OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
                             ' ROWS ONLY');
