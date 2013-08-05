@@ -26,5 +26,19 @@ class Venues extends Controller {
     $this->search = !empty($search);
 		$this->render();
 	}
+  function auth() {
+    $this->render();
+  }
+  function auth_action() {
+    $this->db_update(array('verified' => 1, 'authenticated' => time()));
+		$this->redirect(null, 'view', array('id' => $this->params['id']));
+  }
+  function deauth() {
+    $this->render();
+  }
+  function deauth_action() {
+    $this->db_update(array('verified' => 0, 'authenticated' => null));
+		$this->redirect(null, 'view', array('id' => $this->params['id']));
+  }
 }
 ?>
