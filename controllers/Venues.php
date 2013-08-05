@@ -37,7 +37,7 @@ class Venues extends Controller {
     $this->render();
   }
   function deauth_action() {
-    $this->db_update(array('offical' => 0, 'verified' => 0, 'authenticated' => null));
+    $this->db_update(array('official' => 0, 'verified' => 0, 'authenticated' => null));
 		$this->redirect(null, 'view', array('id' => $this->params['id']));
   }
 }
