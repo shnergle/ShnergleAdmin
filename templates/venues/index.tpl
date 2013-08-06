@@ -60,6 +60,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
+    <?php print_r($entry); ?>
     <div style="width: 500px;">
       <p style="text-align: right">
         <a href="/?controller=venue_staff&action=add" class="btn btn-success btn-small">Add</a>

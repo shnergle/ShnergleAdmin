@@ -18,6 +18,12 @@ class Venues extends Controller {
       } 
     if (!empty($search)) {
     	$this->entries = $this->db_query_all(null, null, $search);
+      foreach ($this->entries as $entry) {
+        $entry['managers'] = $this->db_query_all(null, 'venue_managers, users', array('venue_id = ' . $entry['id'], 'venue_managers.user_id = users.id'));
+      }
+      foreach ($this->entries as $entry) {
+        $entry['staff'] = $this->db_query_all(null, 'venue_staff, users', array('venue_id = ' . $entry['id'], 'venue_staff.user_id = users.id'));
+      }
       $categories = $this->db_query_all(null, 'venue_categories');
       $this->categories = array();
       foreach ($categories as $category)
