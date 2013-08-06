@@ -1,4 +1,6 @@
 <?php
+require_once 'Mail.php';
+
 class Venues extends Controller {
 	function index() {
     $search = array();
@@ -31,6 +33,40 @@ class Venues extends Controller {
   }
   function auth_action() {
     $this->db_update(array('verified' => 1, 'authenticated' => time()));
+    $venue = $this->db_query_one();
+    $creator => $this->db_query_one($venue['creator'], 'users');
+    $subject = 'Congratulations! [VenueName] is now officially on Shnergle!';
+    $message = <<<'END'
+Hi [Name],
+
+Thanks very much for verifying your ownership of [VenueName]; we have now made [VenueName] official on Shnergle.
+
+You can now:
+- Promote [VenueName] by taking regular photos to help the public see what is going on right now
+- Create standing promotions to motivate your customers to promote [VenueName] for you with photo check-ins
+- Create special time sensitive/limited redemption promotions to manage stock or attract business
+- Manage staff permissions through the staff button (all staff members need to be on Shnergle)
+- See how many of the public have RSVP'd to come to [VenueName]
+- Write a descriptive section to give the public more information about [VenueName]
+- Manage your brand with the power to hide inappropriate content yourself
+
+If you are wondering how to do anything, check out our YouTube channel (http://www.youtube.com/user/ShnergleVids) for short video tutorials.
+
+If you notice anything incorrect about [VenueName], please tweet us @ShnergleHelp or drop us a line at contact@shnergle.com and we'll get it fixed.
+
+We hope you enjoy Shnergle and it helps your business; we are always looking for ways to improve the app so please feel free to drop us a line at contact@shnergle.com.
+
+Cheers!
+
+Team Shnergle
+END;
+    $subject = str_replace('[VenueName]', $venue['name'], $subject);
+    $message = str_replace('[Name]', $creator['forename'] . ' ' . $creator['surname'], $message);
+    $message = str_replace('[VenueName]', $venue['name'], $message);
+    $mail = Mail::factory('smtp', array('host' => SMTP_HOST, 'port' => SMTP_PORT, 'auth' => true, 'username' => SMTP_USER, 'password' => SMTP_PASS));
+    $mail = $mail->send($to, array('From' => SMTP_MAIL, 'To' => $to, 'Subject' => $subject), $message);
+    if (PEAR::isError($mail))
+      die($mail->getMessage());
 		$this->redirect(null, 'view', array('id' => $this->params['id']));
   }
   function deauth() {
