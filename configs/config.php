@@ -4,7 +4,7 @@ define('DB_USER', 'shnergle');
 define('DB_PASS', '$Hnergle1');
 define('DB_DB', 'shnergle-db');
 
-define('SMTP_HOST', 'ssl://smtp.office365.com');
+define('SMTP_HOST', 'smtp.office365.com');
 define('SMTP_PORT', 587);
 define('SMTP_USER', 'emailverification@shnergle.com');
 define('SMTP_PASS', '$Hnergle1');
