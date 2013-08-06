@@ -75,7 +75,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         {foreach $entry['managers'] as $staff}
         <tr>
           <td><img class="img-thumbnail" src="http://graph.facebook.com/{$staff['facebook_id']}/picture" alt="Profile Picture" height="50"></td>
-          <td>{$staff['name']}</td>
+          <td>{$staff['forename']} {$staff['surname']}</td>
           <td>Manager</td>
           <td>n/a</td>
           <td>
@@ -90,7 +90,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         {foreach $entry['staff'] as $staff}
         <tr>
           <td><img class="img-thumbnail" src="http://graph.facebook.com/{$staff['facebook_id']}/picture" alt="Profile Picture" height="50"></td>
-          <td>{$staff['name']}</td>
+          <td>{$staff['forename']} {$staff['surname']}</td>
           <td>Staff</td>
           <td>{if $staff['promo_perm'] eq 0}disabled{else}enabled{/if}</td>
           <td>
