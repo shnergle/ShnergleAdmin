@@ -83,7 +83,7 @@ class Controller {
     } else
       $condition = '';
 		return $this->db_result('SELECT * FROM ' . $table . $condition .
-                            ' ORDER BY id OFFSET ' .
+                            ' ORDER BY ' . $table . '.id OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
                             ' ROWS ONLY');
