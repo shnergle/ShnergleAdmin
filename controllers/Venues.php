@@ -64,7 +64,7 @@ END;
     $message = str_replace('[Name]', $creator['forename'] . ' ' . $creator['surname'], $message);
     $message = str_replace('[VenueName]', $venue['name'], $message);
     $mail = Mail::factory('smtp', array('host' => SMTP_HOST, 'port' => SMTP_PORT, 'auth' => true, 'username' => SMTP_USER, 'password' => SMTP_PASS));
-    $mail = $mail->send($to, array('From' => SMTP_MAIL, 'To' => $to, 'Subject' => $subject), $message);
+    $mail = $mail->send($venue['email'], array('From' => SMTP_MAIL, 'To' => $venue['email'], 'Subject' => $subject), $message);
     if (PEAR::isError($mail))
       die($mail->getMessage());
 		$this->redirect(null, 'view', array('id' => $this->params['id']));
