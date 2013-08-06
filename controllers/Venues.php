@@ -34,7 +34,7 @@ class Venues extends Controller {
   function auth_action() {
     $this->db_update(array('verified' => 1, 'authenticated' => time()));
     $venue = $this->db_query_one();
-    $creator => $this->db_query_one($venue['creator'], 'users');
+    $creator = $this->db_query_one($venue['creator'], 'users');
     $subject = 'Congratulations! [VenueName] is now officially on Shnergle!';
     $message = <<<'END'
 Hi [Name],
