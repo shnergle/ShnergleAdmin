@@ -59,21 +59,36 @@ google.maps.event.addDomListener(window, 'load', initialize);
     {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
     <p>&nbsp;</p>
-    <table class="table" style="width: 500px;">
-      <tr>
-        <th>&nbsp;</th>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Details</th>
-      </tr>
-      <tr>
-        <td><img class="img-thumbnail" src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
-        <td>Rob Tregaskes</td>
-        <td>Manager</td>
-        <td><button class="btn btn-primary btn-small">View</button></td>
-      </tr>
-    </table>
+    {if $entry['official'] eq 1}
+    <div style="width: 500px;">
+      <p style="text-align: right">
+        <a href="/?controller=venue_staff&action=add" class="btn btn-success btn-small">Add</a>
+      </p>
+      <table class="table">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Promotion Permissions</th>
+          <th>Details</th>
+        </tr>
+        <tr>
+          <td><img class="img-thumbnail" src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
+          <td>Rob Tregaskes</td>
+          <td>Manager</td>
+          <td>n/a</td>
+          <td>
+            <div class="btn-group">
+              <a href="/?controller=users&action=view&id=" class="btn btn-primary btn-small">View Details</a>
+              <a href="/?controller=venue_staff&action=edit&id=" class="btn btn-warning btn-small">Edit</a>
+              <a href="/?controller=venue_staff&action=delete&id=" class="btn btn-danger btn-small">Delete</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
     <p>&nbsp;</p>
+    {/if}
     <div class="btn-group">
       <a href="/?controller={$slug}&action=view&id={$entry['id']}" class="btn btn-primary btn-small">View Details</a>
       {if $entry['verified'] eq 0}
