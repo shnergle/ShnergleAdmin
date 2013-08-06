@@ -2,7 +2,7 @@
 {block "title" prepend}{$controller}: View{/block}
 {block "content"}
 <div class="page-header">
-  <h1>{$controller}: View</h1>
+  <h1>{$controller}: {if $action eq 'edit'}Edit{else}Add{/if}</h1>
 </div>
 <form action="/?controller={$slug}&action={$action}_action{if !empty($params['id'])}&id={$params['id']}{/if}" method="post">
   {block "specific"}
