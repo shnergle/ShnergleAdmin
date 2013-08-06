@@ -82,8 +82,9 @@ class Controller {
         $condition .= implode(' AND ', $where);
     } else
       $condition = '';
+    $first_table = split(', ', $table)[0];
 		return $this->db_result('SELECT * FROM ' . $table . $condition .
-                            ' ORDER BY ' . $table . '.id OFFSET ' .
+                            ' ORDER BY ' . $first_table . '.id OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
                             ' ROWS ONLY');
