@@ -70,7 +70,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <th>Name</th>
           <th>Status</th>
           <th>Promotion Permissions</th>
-          <th>Details</th>
+          <th>Actions</th>
         </tr>
         <tr>
           <td><img class="img-thumbnail" src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
@@ -79,7 +79,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <td>n/a</td>
           <td>
             <div class="btn-group">
-              <a href="/?controller=users&action=view&id=" class="btn btn-primary btn-small">View Details</a>
+              <a href="/?controller=users&action=view&id=" class="btn btn-primary btn-small">View</a>
               <a href="/?controller=venue_staff&action=edit&id=" class="btn btn-warning btn-small">Edit</a>
               <a href="/?controller=venue_staff&action=delete&id=" class="btn btn-danger btn-small">Delete</a>
             </div>
