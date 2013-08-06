@@ -72,19 +72,36 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <th>Promotion Permissions</th>
           <th>Actions</th>
         </tr>
+        {foreach $entry['managers'] as $staff}
         <tr>
-          <td><img class="img-thumbnail" src="http://graph.facebook.com/500453065/picture" alt="Profile Picture" height="50"></td>
-          <td>Rob Tregaskes</td>
+          <td><img class="img-thumbnail" src="http://graph.facebook.com/{$staff['facebook_id']}/picture" alt="Profile Picture" height="50"></td>
+          <td>{$staff['name']}</td>
           <td>Manager</td>
           <td>n/a</td>
           <td>
             <div class="btn-group">
-              <a href="/?controller=users&action=view&id=" class="btn btn-primary btn-small">View</a>
-              <a href="/?controller=venue_staff&action=edit&id=" class="btn btn-warning btn-small">Edit</a>
-              <a href="/?controller=venue_staff&action=delete&id=" class="btn btn-danger btn-small">Delete</a>
+              <a href="/?controller=users&action=view&id={$staff['user_id']}" class="btn btn-primary btn-small">View</a>
+              <a href="/?controller=venue_managers&action=edit&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-warning btn-small">Edit</a>
+              <a href="/?controller=venue_managers&action=delete&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-danger btn-small">Delete</a>
             </div>
           </td>
         </tr>
+        {/foreach}
+        {foreach $entry['staff'] as $staff}
+        <tr>
+          <td><img class="img-thumbnail" src="http://graph.facebook.com/{$staff['facebook_id']}/picture" alt="Profile Picture" height="50"></td>
+          <td>{$staff['name']}</td>
+          <td>Staff</td>
+          <td>{if $staff['promo_perm'] eq 0}disabled{else}enabled{/if}</td>
+          <td>
+            <div class="btn-group">
+              <a href="/?controller=users&action=view&id={$staff['user_id']}" class="btn btn-primary btn-small">View</a>
+              <a href="/?controller=venue_staff&action=edit&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-warning btn-small">Edit</a>
+              <a href="/?controller=venue_staff&action=delete&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-danger btn-small">Delete</a>
+            </div>
+          </td>
+        </tr>
+        {/foreach}
       </table>
     </div>
     <p>&nbsp;</p>
