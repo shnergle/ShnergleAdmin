@@ -8,19 +8,19 @@
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">App Versions</div>
-      <div id="share-version"></div>
+      <div id="share-version" style="height: 500px"></div>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">iPhone Models</div>
-      <div id="share-model"></div>
+      <div id="share-model" style="height: 500px"></div>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">iOS Versions</div>
-      <div id="share-ios"></div>
+      <div id="share-ios" style="height: 500px"></div>
     </div>
   </div>
 </div>
