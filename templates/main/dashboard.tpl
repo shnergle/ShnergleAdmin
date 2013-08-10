@@ -39,9 +39,9 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: myLabels,
-          drawBorder: false
-        }
+          dataLabels: myLabels
+        },
+        drawBorder: false
       }
     }
   );
@@ -57,9 +57,9 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: myLabels,
-          drawBorder: false
-        }
+          dataLabels: myLabels
+        },
+        drawBorder: false
       }
     }
   );
@@ -75,9 +75,9 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: myLabels,
-          drawBorder: false
-        }
+          dataLabels: myLabels
+        },
+        drawBorder: false
       }
     }
   );
