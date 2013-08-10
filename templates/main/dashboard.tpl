@@ -33,7 +33,7 @@ $(document).ready(function(){
   var total = 0;
   $(version).map(function(){total += this[1];})
   myLabels = $.makeArray($(version).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
-  jQuery.jqplot ('share-version', [version],
+  var plot1 = jQuery.jqplot ('share-version', [version],
     {
       grid: {
                   drawBorder: false,
@@ -56,7 +56,7 @@ $(document).ready(function(){
   var total = 0;
   $(model).map(function(){total += this[1];})
   myLabels = $.makeArray($(model).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
-  jQuery.jqplot ('share-model', [model],
+  var plot2 = jQuery.jqplot ('share-model', [model],
     {
       grid: {
                   drawBorder: false,
@@ -79,7 +79,7 @@ $(document).ready(function(){
   var total = 0;
   $(ios).map(function(){total += this[1];})
   myLabels = $.makeArray($(ios).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
-  jQuery.jqplot ('share-ios', [ios],
+  var plot3 = jQuery.jqplot ('share-ios', [ios],
     {
       grid: {
                   drawBorder: false,
@@ -96,6 +96,11 @@ $(document).ready(function(){
       }
     }
   );
+  $(window).resize(function() {
+        plot1.replot( { resetAxes: true } );
+        plot2.replot( { resetAxes: true } );
+        plot3.replot( { resetAxes: true } );
+  });
 });
 </script>
 {/literal}
