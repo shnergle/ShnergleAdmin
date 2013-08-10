@@ -26,6 +26,7 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
+  $.jqplot.config.enablePlugins = true;
   var version = [
     ['1.0', 100]
   ];
