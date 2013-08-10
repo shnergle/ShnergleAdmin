@@ -38,11 +38,7 @@ $(document).ready(function(){
           sliceMargin: 4
         }
       },
-      legend: { show:true,
-            rendererOptions: {
-                numberRows: 1
-            },
-            location: 's' }
+      legend: { show:true, location: 'e' }
     }
   );
   var model = [
@@ -57,11 +53,7 @@ $(document).ready(function(){
           sliceMargin: 4
         }
       },
-      legend: { show:true,
-            rendererOptions: {
-                numberRows: 1
-            },
-            location: 's' }
+      legend: { show:true, location: 'e' }
     }
   );
   var ios = [
@@ -76,11 +68,7 @@ $(document).ready(function(){
           sliceMargin: 4
         }
       },
-      legend: { show:true,
-            rendererOptions: {
-                numberRows: 1
-            },
-            location: 's' }
+      legend: { show:true, location: 'e' }
     }
   );
 });
