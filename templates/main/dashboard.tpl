@@ -8,19 +8,19 @@
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">App Versions</div>
-      <div id="share-version" style="height: 300px"></div>
+      <div id="share-version" style="height: 250px"></div>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">iPhone Models</div>
-      <div id="share-model" style="height: 300px"></div>
+      <div id="share-model" style="height: 250px"></div>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="panel">
       <div class="panel-heading">iOS Versions</div>
-      <div id="share-ios" style="height: 300px"></div>
+      <div id="share-ios" style="height: 250px"></div>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: ['label', 'percent'],
+          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
       }
@@ -50,7 +50,7 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: ['label', 'percent'],
+          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
       }
@@ -65,7 +65,7 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels: ['label', 'percent'],
+          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
       }
