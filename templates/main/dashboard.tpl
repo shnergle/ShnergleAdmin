@@ -24,6 +24,7 @@
     </div>
   </div>
 </div>
+{literal}
 <script type="text/javascript">
 $(document).ready(function(){
   var version = [
@@ -82,6 +83,7 @@ $(document).ready(function(){
   );
 });
 </script>
+{/literal}
 <table class="table table-striped table-bordered">
   <tr>
     <th>Table</th>
