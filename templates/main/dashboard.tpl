@@ -35,13 +35,18 @@ $(document).ready(function(){
   myLabels = $.makeArray($(version).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-version', [version],
     {
-      seriesDefaults: {
+      grid: {
+                  drawBorder: false,
+                  drawGridlines: false,
+                  background: '#ffffff',
+                  shadow:false
+              },
+        seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels
-        },
-        drawBorder: false
+        }
       }
     }
   );
@@ -53,13 +58,18 @@ $(document).ready(function(){
   myLabels = $.makeArray($(model).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-model', [model],
     {
-      seriesDefaults: {
+      grid: {
+                  drawBorder: false,
+                  drawGridlines: false,
+                  background: '#ffffff',
+                  shadow:false
+              },
+        seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels
-        },
-        drawBorder: false
+        }
       }
     }
   );
@@ -71,13 +81,18 @@ $(document).ready(function(){
   myLabels = $.makeArray($(ios).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-ios', [ios],
     {
-      seriesDefaults: {
+      grid: {
+                  drawBorder: false,
+                  drawGridlines: false,
+                  background: '#ffffff',
+                  shadow:false
+              },
+        seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels
-        },
-        drawBorder: false
+        }
       }
     }
   );
