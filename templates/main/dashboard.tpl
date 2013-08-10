@@ -32,7 +32,7 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(version).map(function(){total += this[1];})
-  myLabels = $.makeArray($(version).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(version).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-version', [version],
     {
       seriesDefaults: {
@@ -40,17 +40,17 @@ $(document).ready(function(){
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels,
-          sliceMargin: 3
+          drawBorder: false
         }
       }
     }
   );
   var model = [
-    ['4', 1], ['4s', 3], ['5', 1]
+    ['4', 1], ['4S', 3], ['5', 1]
   ];
   var total = 0;
   $(model).map(function(){total += this[1];})
-  myLabels = $.makeArray($(model).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(model).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-model', [model],
     {
       seriesDefaults: {
@@ -58,7 +58,7 @@ $(document).ready(function(){
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels,
-          sliceMargin: 3
+          drawBorder: false
         }
       }
     }
@@ -68,7 +68,7 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(ios).map(function(){total += this[1];})
-  myLabels = $.makeArray($(ios).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(ios).map(function(){return this[0] + ": " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-ios', [ios],
     {
       seriesDefaults: {
@@ -76,7 +76,7 @@ $(document).ready(function(){
         rendererOptions: {
           showDataLabels: true,
           dataLabels: myLabels,
-          sliceMargin: 3
+          drawBorder: false
         }
       }
     }
