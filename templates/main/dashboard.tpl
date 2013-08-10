@@ -32,7 +32,7 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(version).map(function(){total += this[1];})
-  myLabels = $.makeArray($(version).map(function(){return "<b>" + this[0] + ":</b> " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(version).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
   var plot1 = jQuery.jqplot ('share-version', [version],
     {
       grid: {
@@ -55,7 +55,7 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(model).map(function(){total += this[1];})
-  myLabels = $.makeArray($(model).map(function(){return "<b>" + this[0] + ":</b> " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(model).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
   var plot2 = jQuery.jqplot ('share-model', [model],
     {
       grid: {
@@ -78,7 +78,7 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(ios).map(function(){total += this[1];})
-  myLabels = $.makeArray($(ios).map(function(){return "<b>" + this[0] + ":</b> " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(ios).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
   var plot3 = jQuery.jqplot ('share-ios', [ios],
     {
       grid: {
