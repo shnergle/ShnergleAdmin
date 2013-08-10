@@ -26,50 +26,58 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-  $.jqplot.config.enablePlugins = true;
   var version = [
     ['1.0', 100]
   ];
+  var total = 0;
+  $(version).map(function(){total += this[1];})
+  myLabels = $.makeArray($(version).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-version', [version],
     {
       seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          sliceMargin: 4
+          dataLabels: myLabels,
+          sliceMargin: 3
         }
-      },
-      legend: { show:true, location: 'e' }
+      }
     }
   );
   var model = [
     ['4', 1], ['4s', 3], ['5', 1]
   ];
+  var total = 0;
+  $(model).map(function(){total += this[1];})
+  myLabels = $.makeArray($(model).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-model', [model],
     {
       seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          sliceMargin: 4
+          dataLabels: myLabels,
+          sliceMargin: 3
         }
-      },
-      legend: { show:true, location: 'e' }
+      }
     }
   );
   var ios = [
     ['6.1.3', 2], ['6.1.4', 1], ['7.0', 2]
   ];
+  var total = 0;
+  $(ios).map(function(){total += this[1];})
+  myLabels = $.makeArray($(ios).map(function(){return this[0] + " " + Math.round(this[1]/total * 100) + "%";}));
   jQuery.jqplot ('share-ios', [ios],
     {
       seriesDefaults: {
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          sliceMargin: 4
+          dataLabels: myLabels,
+          sliceMargin: 3
         }
-      },
-      legend: { show:true, location: 'e' }
+      }
     }
   );
 });
