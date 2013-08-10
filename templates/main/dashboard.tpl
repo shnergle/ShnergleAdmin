@@ -35,10 +35,10 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
-      }
+      },
+      legend: { show:true, location: 'e' }
     }
   );
   var model = [
@@ -50,10 +50,10 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
-      }
+      },
+      legend: { show:true, location: 'e' }
     }
   );
   var ios = [
@@ -65,10 +65,10 @@ $(document).ready(function(){
         renderer: jQuery.jqplot.PieRenderer,
         rendererOptions: {
           showDataLabels: true,
-          dataLabels = ['label', 'percent'],
           sliceMargin: 4
         }
-      }
+      },
+      legend: { show:true, location: 'e' }
     }
   );
 });
