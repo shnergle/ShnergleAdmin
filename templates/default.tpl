@@ -13,6 +13,7 @@
     <![endif]-->
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/css/application.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" hrf="/css/jquery.jqplot.min.css" />
   </head>
   <body class="{$slug} {$action}">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -134,5 +135,8 @@
     </div>
     <script src="/js/jquery.js" type="text/javascript"></script>
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jqplot.pieRenderer.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jqplot.donutRenderer.min.js"></script>
   </body>
 </html>
