@@ -28,7 +28,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   var version = [
-    ['1.0', 100]
+    {/literal}{foreach $app_versions as $app_version}['{$app_version['app_version']}', {$app_version['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(version).map(function(){total += this[1];})
@@ -51,7 +51,7 @@ $(document).ready(function(){
     }
   );
   var model = [
-    ['4', 1], ['4S', 3], ['5', 1]
+    {/literal}{foreach $iphone_models as $iphone_model}['{$iphone_model['iphone_model']}', {$iphone_model['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(model).map(function(){total += this[1];})
@@ -74,7 +74,7 @@ $(document).ready(function(){
     }
   );
   var ios = [
-    ['6.1.3', 2], ['6.1.4', 1], ['7.0', 2]
+    {/literal}{foreach $ios_versions as $ios_version}['{$ios_version['ios_version']}', {$ios_version['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(ios).map(function(){total += this[1];})

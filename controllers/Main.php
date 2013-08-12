@@ -40,6 +40,9 @@ class Main extends Controller {
                           'VenueRsvps' => $this->db_count('venue_rsvps'),
                           'VenueShares' => $this->db_count('venue_shares'),
                           'VenueViews' => $this->db_count('venue_views'));
+    $this->app_versions = $this->db_result('SELECT app_version, COUNT(id) AS no FROM users GROUP BY app_version');
+    $this->iphone_models = $this->db_result('SELECT iphone_model, COUNT(id) AS no FROM users GROUP BY iphone_model');
+    $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
 		$this->render('dashboard');
 	}
 }
