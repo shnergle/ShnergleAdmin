@@ -121,7 +121,6 @@ $(document).ready(function(){
         plot2.replot( { resetAxes: true } );
         plot3.replot( { resetAxes: true } );
   });
-});
   var languages = [
     {/literal}{foreach $languages as $language}['{$language['language']}', {$language['no']}], {/foreach}{literal}
   ];
@@ -150,7 +149,6 @@ $(document).ready(function(){
         plot2.replot( { resetAxes: true } );
         plot3.replot( { resetAxes: true } );
   });
-});
   var countries = [
     {/literal}{foreach $countries as $country}['{$country['country']}', {$country['no']}], {/foreach}{literal}
   ];
@@ -179,7 +177,6 @@ $(document).ready(function(){
         plot2.replot( { resetAxes: true } );
         plot3.replot( { resetAxes: true } );
   });
-});
   var gender = [
     {/literal}{foreach $gender as $g}['{$g['gender']}', {$g['no']}], {/foreach}{literal}
   ];
