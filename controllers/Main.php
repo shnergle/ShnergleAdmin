@@ -43,6 +43,9 @@ class Main extends Controller {
     $this->app_versions = $this->db_result('SELECT app_version, COUNT(id) AS no FROM users GROUP BY app_version');
     $this->iphone_models = $this->db_result('SELECT iphone_model, COUNT(id) AS no FROM users GROUP BY iphone_model');
     $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
+    $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
+    $this->countries = $this->db_result('SELECT country, COUNT(id) AS no FROM users GROUP BY country');
+    $this->gender = $this->db_result('SELECT gender, COUNT(id) AS no FROM users GROUP BY gender');
 		$this->render('dashboard');
 	}
 }
