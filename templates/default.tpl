@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <title>{block "title"} - ShnergleAdmin{/block}</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond/respond.min.js"></script>

@@ -29,7 +29,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {foreach $entries as $entry}
   <div class="panel">
-    <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success">official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}">verified</span>{/if}</div>
+    <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok">official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"> verified</span>{/if}</div>
     {literal}
     <script>
 var map;
@@ -92,7 +92,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <td><img class="img-thumbnail" src="http://graph.facebook.com/{$staff['facebook_id']}/picture" alt="Profile Picture" height="50"></td>
           <td>{$staff['forename']} {$staff['surname']}</td>
           <td>Staff</td>
-          <td>{if $staff['promo_perm'] eq 0}disabled{else}enabled{/if}</td>
+          <td>{if $staff['promo_perm'] eq 0}<span class="glyphicon glyphicon-remove"></span> disabled{else}<span class="glyphicon glyphicon-ok"></span> enabled{/if}</td>
           <td>
             <div class="btn-group">
               <a href="/?controller=users&action=view&id={$staff['user_id']}" class="btn btn-primary btn-small">View</a>
@@ -120,7 +120,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="list-group-item"><b>Category:</b> {$categories[$entry['category_id']]}</li>
       <li class="list-group-item"><b>Address:</b> {$entry['address']}</li>
       {if $entry['official'] eq 1}
-      <li class="list-group-item"><b>Email:</b> {$entry['email']} <span class="label label-{if $entry['email_verified'] eq 1}success{else}danger{/if}">verified</span></li>
+      <li class="list-group-item"><b>Email:</b> {$entry['email']} <span class="label label-{if $entry['email_verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['email_verified'] eq 1}ok{else}remove{/if}"></span> verified</span></li>
       <li class="list-group-item"><b>Website:</b> {$entry['website']}</li>
       <li class="list-group-item"><b>Telephone:</b> {$entry['phone']}</li>
       {/if}
