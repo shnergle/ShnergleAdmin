@@ -29,7 +29,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {foreach $entries as $entry}
   <div class="panel">
-    <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok">official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"> verified</span>{/if}</div>
+    <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"></span> verified</span>{/if}</div>
     {literal}
     <script>
 var map;
