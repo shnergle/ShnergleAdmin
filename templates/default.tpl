@@ -22,45 +22,45 @@
     <script type="text/javascript" src="/js/plugins/jqplot.donutRenderer.min.js"></script>
   </head>
   <body class="{$slug} {$action}">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">ShnergleAdmin</a>
-        {if $auth}
-          <div class="nav-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li{if strpos($slug, 'media', 0) === 0} class="active"{/if}>
-                <a href="/?controller=media">Media</a>
-              </li>
-              <li{if strpos($slug, 'post', 0) === 0} class="active"{/if}>
-                <a href="/?controller=posts">Posts</a>
-              </li>
-              <li{if strpos($slug, 'promotion', 0) === 0} class="active"{/if}>
-                <a href="/?controller=promotions">Promotions</a>
-              </li>
-              <li{if strpos($slug, 'user', 0) === 0} class="active"{/if}>
-                <a href="/?controller=users">Users</a>
-              </li>
-              <li{if strpos($slug, 'venue', 0) === 0} class="active"{/if}>
-                <a href="/?controller=venues">Venues</a>
-              </li>
-              <li{if strpos($slug, 'image', 0) === 0} class="active"{/if}>
-                <a href="/?controller=images">Images</a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-              <li>
-                <a href="/?controller=main&action=logout">Log Out</a>
-              </li>
-            </ul>
-          </div>
-        {/if}
       </div>
-    </div>
+      {if $auth}
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li{if strpos($slug, 'media', 0) === 0} class="active"{/if}>
+            <a href="/?controller=media">Media</a>
+          </li>
+          <li{if strpos($slug, 'post', 0) === 0} class="active"{/if}>
+            <a href="/?controller=posts">Posts</a>
+          </li>
+          <li{if strpos($slug, 'promotion', 0) === 0} class="active"{/if}>
+            <a href="/?controller=promotions">Promotions</a>
+          </li>
+          <li{if strpos($slug, 'user', 0) === 0} class="active"{/if}>
+            <a href="/?controller=users">Users</a>
+          </li>
+          <li{if strpos($slug, 'venue', 0) === 0} class="active"{/if}>
+            <a href="/?controller=venues">Venues</a>
+          </li>
+          <li{if strpos($slug, 'image', 0) === 0} class="active"{/if}>
+            <a href="/?controller=images">Images</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/?controller=main&action=logout">Log Out</a></li>
+        </ul>
+      </div>
+      {/if}
+    </nav>
     <div class="container">
       {if isset($flash)}
         <div class="alert {if isset($flashtype)}alert-{$flashtype}{/if}">
