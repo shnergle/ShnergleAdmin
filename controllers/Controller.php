@@ -58,10 +58,18 @@ class Controller {
 		sqlsrv_free_stmt($qry);
 		return $result;
 	}
-  function db_count($table = null) {
+  function db_count($table = null, $where = null) {
 		if (empty($table))
 			$table = $this->slug;
-		return $this->db_result('SELECT COUNT(*) as cnt FROM ' . $table)[0]['cnt'];
+    if (!empty($where)) {
+      $condition = ' WHERE ';
+      if (is_string($where))
+        $condition .= $where;
+      else
+        $condition .= implode(' AND ', $where);
+    } else
+      $condition = '';
+		return $this->db_result('SELECT COUNT(*) as cnt FROM ' . $table . $condition)[0]['cnt'];
   }
   
   function db_columns($table = null) {

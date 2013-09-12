@@ -23,8 +23,7 @@ class Main extends Controller {
 		$this->redirect();
 	}
 	function dashboard() {
-    $this->counts = array('Media' => $this->db_count('media'),
-                          'Posts' => $this->db_count('posts'),
+    $this->counts = array('Posts' => $this->db_count('posts'),
                           'PostLikes' => $this->db_count('post_likes'),
                           'PostReports' => $this->db_count('post_reports'),
                           'PostShares' => $this->db_count('post_shares'),
@@ -34,6 +33,8 @@ class Main extends Controller {
                           'Users' => $this->db_count('users'),
                           'UserSearches' => $this->db_count('user_searches'),
                           'Venues' => $this->db_count('venues'),
+                          'Venues (Official)' => $this->db_count('venues', array('official = 1')),
+                          'Venues (Authenticated)' => $this->db_count('venues', array('authenticated NOT IN (0, null)')),
                           'VenueCategories' => $this->db_count('venue_categories'),
                           'VenueFollowers' => $this->db_count('venue_followers'),
                           'VenueLoads' => $this->db_count('venue_loads'),
