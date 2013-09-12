@@ -35,7 +35,6 @@ class Main extends Controller {
                           'Venues' => $this->db_count('venues'),
                           'Venues (Official)' => $this->db_count('venues', array('official = 1')),
                           'Venues (Authenticated)' => $this->db_count('venues', array('verified = 1')),
-                          'VenueCategories' => $this->db_count('venue_categories'),
                           'VenueFollowers' => $this->db_count('venue_followers'),
                           'VenueLoads' => $this->db_count('venue_loads'),
                           'VenueRsvps' => $this->db_count('venue_rsvps'),
