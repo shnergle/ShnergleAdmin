@@ -137,7 +137,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <th>Time</th>
     </tr>
     {foreach $recentVenues as $venue}
-    {assign var=$time value=$venue['last_activity']}
+    {assign var=time value=$venue['last_activity']}
       <tr>
         <td><a href="/?controller=venues&venue-id={$venue['id']}">{$venue['name']}</a></td>
         <td>{$time|date_format:"%d/%m/%Y %H:%i:%s"}</td>
