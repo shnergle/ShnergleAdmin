@@ -77,7 +77,7 @@ class Controller {
 			$table = $this->slug;
 		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
   }
-	function db_query_all($page = null, $table = null, $where = null, $order_by = null, $fields = null) {
+	function db_query_all($page = null, $table = null, $where = null, $order_by = null, $group_by = null, $fields = null) {
     if (empty($page))
       $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
@@ -92,10 +92,14 @@ class Controller {
       $condition = '';
 		if (empty($order_by))
 			$order_by = $first_table . '.id';
+		if (empty($group_by))
+			$group_by = '';
+    else
+      $group_by = ' GROUP BY ' . $group_by;
 		if (empty($fields))
 			$fields = '*';
     $first_table = explode(', ', $table)[0];
-		return $this->db_result('SELECT ' . $fields . ' FROM ' . $table . $condition .
+		return $this->db_result('SELECT ' . $fields . ' FROM ' . $table . $condition . $group_by .
                             ' ORDER BY ' . $order_by . ' OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
