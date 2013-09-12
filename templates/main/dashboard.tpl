@@ -206,7 +206,7 @@ $(document).ready(function(){
     }
   );
   var categories = [
-    {/literal}{foreach $categories as $c}['{$c['type']}', {$c['no']}], {/foreach}{literal}
+    {/literal}{foreach $categories as $c}['{$categories_h[$c['category_id']}]', {$c['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(categories).map(function(){total += this[1];})

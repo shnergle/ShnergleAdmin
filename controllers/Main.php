@@ -79,7 +79,30 @@ class Main extends Controller {
     $this->gender_h = array('m' => 'Male',
                             'f' => 'Female',
                             '' => '');
-    $this->categories = $this->db_result('SELECT COUNT(venues.id) AS no, type FROM venues, venue_categories WHERE venues.category_id = venue_categories.id GROUP BY type');
+    $this->categories = $this->db_result('SELECT COUNT(id) AS no, category_id FROM venues GROUP BY category_id');
+    $this->categories_h = array(18 => "Airport",
+                   6 => "Arts & Entertainment",
+                   1 => "Bar",
+                   19 => "Bus",
+                   4 => "Café",
+                   8 => "Club / Society",
+                   7 => "College & University",
+                   23 => "Cultural / Landmark",
+                   9 => "Food",
+                   10 => "Great Outdoors",
+                   5 => "Gym",
+                   12 => "Night Club",
+                   11 => "Nightlife",
+                   17 => "Professional & Other",
+                   13 => "Pub",
+                   21 => "Rail",
+                   14 => "Residence",
+                   20 => "Road",
+                   15 => "Shop & Service",
+                   16 => "Sports",
+                   24 => "Tourist Attraction",
+                   3 => "Travel & Transport",
+                   22 => "Underground");
     $this->waitingVenuesEmail = $this->db_query_all(null, 'venues', array('email_verified = 0', 'official = 1'));
     $this->waitingVenuesAuth = $this->db_query_all(null, 'venues', array('email_verified = 1', 'verified = 0'));
     $this->waitingVenues = max(count($this->waitingVenuesEmail), count($this->waitingVenuesAuth));
