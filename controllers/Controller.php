@@ -78,6 +78,7 @@ class Controller {
 		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
   }
 	function db_query_all($page = null, $table = null, $where = null, $order_by = null, $group_by = null, $fields = null) {
+    $first_table = explode(', ', $table)[0];
     if (empty($page))
       $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
@@ -98,7 +99,6 @@ class Controller {
       $group_by = ' GROUP BY ' . $group_by;
 		if (empty($fields))
 			$fields = '*';
-    $first_table = explode(', ', $table)[0];
 		return $this->db_result('SELECT ' . $fields . ' FROM ' . $table . $condition . $group_by .
                             ' ORDER BY ' . $order_by . ' OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
