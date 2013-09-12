@@ -60,7 +60,7 @@
   <div class="col-lg-12">
     <div class="panel">
       <div class="panel-heading">Categories</div>
-      <div id="categories" style="height: 500px"></div>
+      <div id="categories" style="height: 300px"></div>
     </div>
   </div>
 </div>
@@ -224,7 +224,7 @@ $(document).ready(function(){
           tickRenderer: $.jqplot.CanvasAxisTickRenderer,
           ticks: myLabels,
           tickOptions: {
-            angle: -90
+            angle: -45
           }
         }
       }
