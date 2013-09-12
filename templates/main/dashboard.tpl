@@ -221,7 +221,7 @@ $(document).ready(function(){
                         }
       },
         axes: {
-          xaxis: { 
+          yaxis: { 
                     renderer: $.jqplot.CategoryAxisRenderer,
                     ticks: myLabels
           }
