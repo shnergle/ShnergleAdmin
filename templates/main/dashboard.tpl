@@ -160,7 +160,7 @@ $(document).ready(function(){
     }
   );
   var countries = [
-    {/literal}{foreach $countries as $country}['{$country['country']}', {$country['no']}], {/foreach}{literal}
+    {/literal}{foreach $countries as $country}['{$country['country']|upper}', {$country['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(countries).map(function(){total += this[1];})
