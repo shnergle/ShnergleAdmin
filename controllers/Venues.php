@@ -38,7 +38,7 @@ class Venues extends Controller {
 		$this->render();
 	}
   function smarty_modifier_date_format($string, $format=null, $default_date='', $formatter='auto')
-  {
+  {echo '$format='.$format;echo '$string='.$string;
       if ($format === null) {
           $format = Smarty::$_DATE_FORMAT;
       }
