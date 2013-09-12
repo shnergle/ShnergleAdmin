@@ -221,7 +221,7 @@ $(document).ready(function(){
               },
         seriesDefaults: {
         renderer: jQuery.jqplot.BarRenderer,
-        //series: myLabels
+        seriesNOT: myLabels
       }
     }
   );
