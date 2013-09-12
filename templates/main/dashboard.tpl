@@ -205,8 +205,8 @@ $(document).ready(function(){
       }
     }
   );
-  var gender = [
-    {/literal}{foreach $gender as $g}['{$gender_h[$g['gender']]}', {$g['no']}], {/foreach}{literal}
+  var categories = [
+    {/literal}{foreach $categories as $c}['{$c['type']}', {$c['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(categories).map(function(){total += this[1];})
