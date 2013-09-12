@@ -90,9 +90,13 @@ class Controller {
         $condition .= implode(' AND ', $where);
     } else
       $condition = '';
+		if (empty($order_by))
+			$order_by = $first_table . '.id';
+		if (empty($fields))
+			$fields = '*';
     $first_table = explode(', ', $table)[0];
-		return $this->db_result('SELECT * FROM ' . $table . $condition .
-                            ' ORDER BY ' . $first_table . '.id OFFSET ' .
+		return $this->db_result('SELECT ' . $fields . ' FROM ' . $table . $condition .
+                            ' ORDER BY ' . $order_by . ' OFFSET ' .
                             ($page - 1) * ENTRIES_PER_PAGE .
                             ' ROWS FETCH NEXT ' . ENTRIES_PER_PAGE .
                             ' ROWS ONLY');

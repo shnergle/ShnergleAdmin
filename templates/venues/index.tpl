@@ -130,5 +130,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
 {else}
   <p>No entries!</p>
 {/if}
+{else}
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Most Recently Checked In</th>
+      <th>Time</th>
+    </tr>
+    {foreach $recentVenues as $venue}
+      <tr>
+        <td><a href="/?controller=venues&venue-id={$venue['id']}">{$venue['name']}</a></td>
+        <td>{$venue['time']|date_format:"%d/%m/%Y %H:%i:%s"}</td>
+      </tr>
+    {/for}
+  </table>
 {/if}
 {/block}
