@@ -13,7 +13,7 @@ class Venues extends Controller {
     if (!empty($this->params['type-search']))
       if ($this->params['type-search'] == 'to-auth') {
         $search[] = 'email_verified = 1';
-        $search[] = 'authenticated IN (0, null)';
+        $search[] = 'verified = 0';
       } elseif ($this->params['type-search'] == 'to-veri') {
         $search[] = 'email_verified = 0';
         $search[] = 'official = 1';

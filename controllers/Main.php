@@ -34,7 +34,7 @@ class Main extends Controller {
                           'UserSearches' => $this->db_count('user_searches'),
                           'Venues' => $this->db_count('venues'),
                           'Venues (Official)' => $this->db_count('venues', array('official = 1')),
-                          'Venues (Authenticated)' => $this->db_count('venues', array('authenticated NOT IN (0, null)')),
+                          'Venues (Authenticated)' => $this->db_count('venues', array('verified = 1')),
                           'VenueCategories' => $this->db_count('venue_categories'),
                           'VenueFollowers' => $this->db_count('venue_followers'),
                           'VenueLoads' => $this->db_count('venue_loads'),
@@ -80,7 +80,7 @@ class Main extends Controller {
                             'f' => 'Female',
                             '' => '');
     $this->waitingVenuesEmail = $this->db_query_all(null, 'venues', array('email_verified = 0', 'official = 1'));
-    $this->waitingVenuesAuth = $this->db_query_all(null, 'venues', array('email_verified = 1', 'authenticated IN (0, null)'));
+    $this->waitingVenuesAuth = $this->db_query_all(null, 'venues', array('email_verified = 1', 'verified = 0'));
     $this->waitingVenues = max(count($this->waitingVenuesEmail), count($this->waitingVenuesAuth));
 		$this->render('dashboard');
 	}
