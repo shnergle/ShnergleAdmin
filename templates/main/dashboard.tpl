@@ -210,17 +210,12 @@ $(document).ready(function(){
   ];
   var total = 0;
   $(categories).map(function(){total += this[1];})
-  myLabels = $.makeArray($(categories).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
+  myLabels = $.makeArray($(categories).map(function(){return this[0];}));
   var plot7 = jQuery.jqplot ('categories', [categories],
     {
-      grid: {
-                  drawBorder: false,
-                  drawGridlines: false,
-                  background: '#ffffff',
-                  shadow:false
-              },
         seriesDefaults: {
         renderer: jQuery.jqplot.BarRenderer,
+        pointLabels: {show: true}
       },
         axes: {
           xaxis: { 
