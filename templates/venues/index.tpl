@@ -141,7 +141,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <td><a href="/?controller=venues&venue-id={$venue['id']}">{$venue['name']}</a></td>
         <td>{$venue['time']|date_format:"%d/%m/%Y %H:%i:%s"}</td>
       </tr>
-    {/for}
+    {/foreach}
   </table>
 {/if}
 {/block}
