@@ -31,7 +31,7 @@ class Venues extends Controller {
       $this->page = empty($this->params['page']) ? 1 : $this->params['page'];
       $this->pages = 1;
     } else {
-      $this->recentVenues = $this->db_query_all(null, 'venues, posts', array('posts.venue_id = venues.id'), 'time DESC', 'venues.id, name', 'venues.id, name, MAX(time)');
+      $this->recentVenues = $this->db_query_all(null, 'venues, posts', array('posts.venue_id = venues.id'), 'last_activity DESC', 'venues.id, name', 'venues.id, name, MAX(time) as last_activity');
     }
     $this->search = !empty($search);
 		$this->render();
