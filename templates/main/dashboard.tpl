@@ -221,6 +221,7 @@ $(document).ready(function(){
               },
         seriesDefaults: {
         renderer: jQuery.jqplot.BarRenderer,
+      },
         axes: {
           xaxis: { 
                     renderer: $.jqplot.CategoryAxisRenderer,
