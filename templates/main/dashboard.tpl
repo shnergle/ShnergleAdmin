@@ -220,7 +220,7 @@ $(document).ready(function(){
       },
       axes: {
         xaxis: { 
-          renderer: $.jqplot.CategoryAxisRenderer,
+          tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
           ticks: myLabels,
           tickOptions: {
             angle: -180
