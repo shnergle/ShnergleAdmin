@@ -33,46 +33,9 @@ class Venues extends Controller {
     } else {
       $this->recentVenues = $this->db_query_all(null, 'venues, posts', array('posts.venue_id = venues.id'), 'last_activity DESC', 'venues.id, name', 'venues.id, name, MAX(time) as last_activity');
     }
-    echo $this->smarty_modifier_date_format($this->recentVenues[0]['last_activity'],"%d/%m/%Y %H:%i:%s");
     $this->search = !empty($search);
 		$this->render();
 	}
-  function smarty_modifier_date_format($string, $format=null, $default_date='', $formatter='auto')
-  {echo '$format='.$format;echo '$string='.$string;
-      if ($format === null) {
-          $format = Smarty::$_DATE_FORMAT;
-      }
-      /**
-      * Include the {@link shared.make_timestamp.php} plugin
-      */
-      require_once(SMARTY_PLUGINS_DIR . 'shared.make_timestamp.php');
-      if ($string != '' && $string != '0000-00-00' && $string != '0000-00-00 00:00:00') {
-          $timestamp = smarty_make_timestamp($string);
-          echo '$timestamp='.$timestamp;
-      } elseif ($default_date != '') {
-          $timestamp = smarty_make_timestamp($default_date);
-      } else {
-          return;
-      } 
-      if($formatter=='strftime'||($formatter=='auto'&&strpos($format,'%')!==false)) {
-          if (DS == '\\') {
-              $_win_from = array('%D', '%h', '%n', '%r', '%R', '%t', '%T');
-              $_win_to = array('%m/%d/%y', '%b', "\n", '%I:%M:%S %p', '%H:%M', "\t", '%H:%M:%S');
-              if (strpos($format, '%e') !== false) {
-                  $_win_from[] = '%e';
-                  $_win_to[] = sprintf('%\' 2d', date('j', $timestamp));
-              } 
-              if (strpos($format, '%l') !== false) {
-                  $_win_from[] = '%l';
-                  $_win_to[] = sprintf('%\' 2d', date('h', $timestamp));
-              } 
-              $format = str_replace($_win_from, $_win_to, $format);
-          } echo '$format='.$format;echo '$return='.strftime($format, $timestamp);echo '$returnalt='.date($format, $timestamp);
-          return strftime($format, $timestamp);
-      } else {
-          return date($format, $timestamp);
-      }
-  } 
   function auth() {
     $this->render();
   }
