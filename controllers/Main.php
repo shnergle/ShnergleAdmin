@@ -69,13 +69,15 @@ class Main extends Controller {
                                    'iPod2,1' => 'iPod touch 2G',
                                    'iPod3,1' => 'iPod touch 3G',
                                    'iPod4,1' => 'iPod touch 4G',
-                                   'iPod5,1' => 'iPod touch 5G');
+                                   'iPod5,1' => 'iPod touch 5G',
+                                   '' => '');
     $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
     $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
     $this->countries = $this->db_result('SELECT country, COUNT(id) AS no FROM users GROUP BY country');
     $this->gender = $this->db_result('SELECT gender, COUNT(id) AS no FROM users GROUP BY gender');
     $this->gender_h = array('m' => 'Male',
-                            'f' => 'Female');
+                            'f' => 'Female',
+                            '' => '');
 		$this->render('dashboard');
 	}
 }
