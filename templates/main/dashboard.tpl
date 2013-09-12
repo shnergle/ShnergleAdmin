@@ -14,7 +14,7 @@
       <td>{if isset($waitingVenuesEmail[i])}<a href="/?controller=venues&venue-id={$waitingVenuesEmail[i]['id']}">{$waitingVenuesEmail[i]['name']}</a>{/if}</td>
       <td>{if isset($waitingVenuesAuth[i])}<a href="/?controller=venues&venue-id={$waitingVenuesAuth[i]['id']}">{$waitingVenuesAuth[i]['name']}</a>{/if}</td>
     </tr>
-  {/foreach}
+  {/for}
 </table>
 <div class="row">
   <div class="col-lg-4">
