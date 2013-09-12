@@ -18,6 +18,7 @@ if ($sql === false)
 define('SMARTY_DIR', str_replace("\\", "/", getcwd()) . '/smarty/');
 require_once SMARTY_DIR . 'Smarty.class.php';
 $smarty = new Smarty();
+$smarty->php_handling = Smarty::PHP_ALLOW;
 
 $gcontroller = empty($_GET['controller']) ? 'main' : $_GET['controller'];
 $gaction = empty($_GET['action']) ? 'index' : $_GET['action'];
