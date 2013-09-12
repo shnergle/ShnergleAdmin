@@ -33,7 +33,7 @@ class Venues extends Controller {
     } else {
       $this->recentVenues = $this->db_query_all(null, 'venues, posts', array('posts.venue_id = venues.id'), 'last_activity DESC', 'venues.id, name', 'venues.id, name, MAX(time) as last_activity');
     }
-    echo $smarty->smarty_modifier_date_format($this->recentVenues[0]['last_activity'],"%d/%m/%Y %H:%i:%s");
+    echo $this->smarty->smarty_modifier_date_format($this->recentVenues[0]['last_activity'],"%d/%m/%Y %H:%i:%s");
     $this->search = !empty($search);
 		$this->render();
 	}
