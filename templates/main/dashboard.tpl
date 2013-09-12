@@ -209,7 +209,8 @@ $(document).ready(function(){
     {/literal}{foreach $categories as $c}['{$c['type']}', {$c['no']}], {/foreach}{literal}
   ];
   var total = 0;
-  catdata = $.makeArray($(categories).map(function(){return this[1];}));
+  $(categories).map(function(){total += this[1];})
+  catdata = $.makeArray($(categories).map(function(){return Math.round(this[1]/total * 100);}));
   myLabels = $.makeArray($(categories).map(function(){return this[0];}));
   var plot7 = jQuery.jqplot ('categories', [catdata],
     {
