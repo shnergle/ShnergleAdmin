@@ -137,7 +137,7 @@ $(document).ready(function(){
     }
   );
   var languages = [
-    {/literal}{foreach $languages as $language}['{$language['language']}', {$language['no']}], {/foreach}{literal}
+    {/literal}{foreach $languages as $language}['{$languages_h[$language['language']]}', {$language['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(languages).map(function(){total += this[1];})
