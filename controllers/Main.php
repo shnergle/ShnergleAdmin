@@ -42,10 +42,32 @@ class Main extends Controller {
                           'VenueViews' => $this->db_count('venue_views'));
     $this->app_versions = $this->db_result('SELECT app_version, COUNT(id) AS no FROM users GROUP BY app_version');
     $this->iphone_models = $this->db_result('SELECT iphone_model, COUNT(id) AS no FROM users GROUP BY iphone_model');
+    $this->iphone_models_h = array('iPhone1,1' => 'iPhone',
+                                   'iPhone1,2' => 'iPhone 3G',
+                                   'iPhone2,1' => 'iPhone 3GS',
+                                   'iPhone3,1' => 'iPhone 4 GSM',
+                                   'iPhone3,2' => 'iPhone 4 GSM (A)',
+                                   'iPhone3,3' => 'iPhone 4 CDMA',
+                                   'iPhone4,1' => 'iPhone 4S',
+                                   'iPhone5,1' => 'iPhone 5 GSM',
+                                   'iPhone5,2' => 'iPhone 5 CDMA',
+                                   'iPad1,1' => 'iPad',
+                                   'iPad2,1' => 'iPad 2 WiFi',
+                                   'iPad2,2' => 'iPad 2 GSM',
+                                   'iPad2,3' => 'iPad 2 CDMA',
+                                   'iPad2,4' => 'iPad 2 WiFi (A)',
+                                   'iPad3,1' => 'iPad 3 WiFi',
+                                   'iPad3,2' => 'iPad 3 CDMA',
+                                   'iPad3,3' => 'iPad 3 GSM',
+                                   'iPad3,4' => 'iPad WiFi',
+                                   'iPad3,5' => 'iPad GSM',
+                                   'iPad3,6' => 'iPad CDMA');
     $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
     $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
     $this->countries = $this->db_result('SELECT country, COUNT(id) AS no FROM users GROUP BY country');
     $this->gender = $this->db_result('SELECT gender, COUNT(id) AS no FROM users GROUP BY gender');
+    $this->gender_h = array('m' => 'Male',
+                            'f' => 'Female');
 		$this->render('dashboard');
 	}
 }

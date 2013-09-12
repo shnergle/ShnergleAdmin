@@ -71,7 +71,7 @@ $(document).ready(function(){
     }
   );
   var model = [
-    {/literal}{foreach $iphone_models as $iphone_model}['{$iphone_model['iphone_model']}', {$iphone_model['no']}], {/foreach}{literal}
+    {/literal}{foreach $iphone_models as $iphone_model}['{$iphone_models_h[$iphone_model['iphone_model']]}', {$iphone_model['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(model).map(function(){total += this[1];})
@@ -178,7 +178,7 @@ $(document).ready(function(){
         plot3.replot( { resetAxes: true } );
   });
   var gender = [
-    {/literal}{foreach $gender as $g}['{$g['gender']}', {$g['no']}], {/foreach}{literal}
+    {/literal}{foreach $gender as $g}['{$gender_h[$g['gender']]}', {$g['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(gender).map(function(){total += this[1];})
