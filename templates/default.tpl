@@ -20,6 +20,9 @@
     <script type="text/javascript" src="/js/jquery.jqplot.min.js"></script>
     <script type="text/javascript" src="/js/plugins/jqplot.pieRenderer.min.js"></script>
     <script type="text/javascript" src="/js/plugins/jqplot.donutRenderer.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jqplot.pointLabels.min.js"></script>
   </head>
   <body class="{$slug} {$action}">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
