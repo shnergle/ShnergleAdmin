@@ -214,20 +214,18 @@ $(document).ready(function(){
   myLabels = $.makeArray($(categories).map(function(){return this[0];}));
   var plot7 = jQuery.jqplot ('categories', [catdata],
     {
-        seriesDefaults: {
+      seriesDefaults: {
         renderer: jQuery.jqplot.BarRenderer,
         pointLabels: {show: true, formatString: '%d%%'},
-        rendererOptions: {
-                            barDirection: 'horizontal'
-                        }
+        rendererOptions: {barDirection: 'horizontal'}
       },
-        axes: {
-          yaxis: { 
-                    renderer: $.jqplot.CategoryAxisRenderer,
-                    ticks: myLabels
-          }
+      axes: {
+        yaxis: { 
+          renderer: $.jqplot.CategoryAxisRenderer,
+          ticks: myLabels
         }
       }
+    }
   );
   $(window).resize(function() {
         plot1.replot( { resetAxes: true } );
