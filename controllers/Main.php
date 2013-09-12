@@ -78,6 +78,9 @@ class Main extends Controller {
     $this->gender_h = array('m' => 'Male',
                             'f' => 'Female',
                             '' => '');
+    $this->waitingVenuesEmail = $this->db_query_all(null, 'venues', array('email_verified = 0', 'official = 1'));
+    $this->waitingVenuesAuth = $this->db_query_all(null, 'venues', array('email_verified = 1', 'authenticated IN (0, null)'));
+    $this->waitingVenues = max(count($this->waitingVenuesEmail), count($this->waitingVenuesAuth));
 		$this->render('dashboard');
 	}
 }

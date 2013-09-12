@@ -4,6 +4,8 @@ require_once 'Mail.php';
 class Venues extends Controller {
 	function index() {
     $search = array();
+    if (!empty($this->params['venue-id']))
+      $search[] = 'id = ' . $this->params['venue-id']);
     if (!empty($this->params['venue-search']))
       $search[] = 'name LIKE \'%' . str_replace(' ', '%', $this->params['venue-search']) . '%\'';
     if (!empty($this->params['staff-search']))

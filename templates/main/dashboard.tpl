@@ -4,6 +4,18 @@
 <div class="page-header">
   <h1>Dashboard</h1>
 </div>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th style="width: 50%">Awaiting Email Verification</th>
+    <th style="width: 50%">Awaiting Authentication</th>
+  </tr>
+  {for $i=0 to $waitingVenues - 1}
+    <tr>
+      <td>{if isset($waitingVenuesEmail[i])}<a href="/?controller=venues&venue-id={$waitingVenuesEmail[i]['id']}">{$waitingVenuesEmail[i]['name']}</a>{/if}</td>
+      <td>{if isset($waitingVenuesAuth[i])}<a href="/?controller=venues&venue-id={$waitingVenuesAuth[i]['id']}">{$waitingVenuesAuth[i]['name']}</a>{/if}</td>
+    </tr>
+  {/foreach}
+</table>
 <div class="row">
   <div class="col-lg-4">
     <div class="panel">
