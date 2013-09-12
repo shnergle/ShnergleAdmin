@@ -77,7 +77,7 @@ class Controller {
 			$table = $this->slug;
 		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
   }
-	function db_query_all($page = null, $table = null, $where = null) {
+	function db_query_all($page = null, $table = null, $where = null, $order_by = null, $fields = null) {
     if (empty($page))
       $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
