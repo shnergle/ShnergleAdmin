@@ -11,8 +11,8 @@
   </tr>
   {for $i=0 to $waitingVenues - 1}
     <tr>
-      <td>{if isset($waitingVenuesEmail[i])}<a href="/?controller=venues&venue-id={$waitingVenuesEmail[i]['id']}">{$waitingVenuesEmail[i]['name']}</a>{/if}</td>
-      <td>{if isset($waitingVenuesAuth[i])}<a href="/?controller=venues&venue-id={$waitingVenuesAuth[i]['id']}">{$waitingVenuesAuth[i]['name']}</a>{/if}</td>
+      <td>{if isset($waitingVenuesEmail[$i])}<a href="/?controller=venues&venue-id={$waitingVenuesEmail[$i]['id']}">{$waitingVenuesEmail[$i]['name']}</a>{/if}</td>
+      <td>{if isset($waitingVenuesAuth[$i])}<a href="/?controller=venues&venue-id={$waitingVenuesAuth[$i]['id']}">{$waitingVenuesAuth[$i]['name']}</a>{/if}</td>
     </tr>
   {/for}
 </table>
