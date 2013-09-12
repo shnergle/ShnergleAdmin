@@ -48,6 +48,7 @@ class Venues extends Controller {
       require_once(SMARTY_PLUGINS_DIR . 'shared.make_timestamp.php');
       if ($string != '' && $string != '0000-00-00' && $string != '0000-00-00 00:00:00') {
           $timestamp = smarty_make_timestamp($string);
+          echo '$timestamp='.$timestamp;
       } elseif ($default_date != '') {
           $timestamp = smarty_make_timestamp($default_date);
       } else {
