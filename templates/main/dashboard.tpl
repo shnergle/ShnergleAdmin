@@ -60,7 +60,7 @@
   <div class="col-lg-12">
     <div class="panel">
       <div class="panel-heading">Categories</div>
-      <div id="categories" style="height: 300px"></div>
+      <div id="categories" style="height: 1000px"></div>
     </div>
   </div>
 </div>
@@ -215,7 +215,10 @@ $(document).ready(function(){
     {
         seriesDefaults: {
         renderer: jQuery.jqplot.BarRenderer,
-        pointLabels: {show: true}
+        pointLabels: {show: true, formatString: '%d%%'},
+        rendererOptions: {
+                            barDirection: 'horizontal'
+                        }
       },
         axes: {
           xaxis: { 
