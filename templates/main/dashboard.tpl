@@ -223,7 +223,7 @@ $(document).ready(function(){
           tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
           ticks: myLabels,
           tickOptions: {
-            angle: -180
+            angle: -90
           }
         }
       }
