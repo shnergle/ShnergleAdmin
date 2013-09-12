@@ -56,6 +56,14 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel">
+      <div class="panel-heading">Categories</div>
+      <div id="categories" style="height: 300px"></div>
+    </div>
+  </div>
+</div>
 {literal}
 <script type="text/javascript">
 $(document).ready(function(){
@@ -128,18 +136,13 @@ $(document).ready(function(){
       }
     }
   );
-  $(window).resize(function() {
-        plot1.replot( { resetAxes: true } );
-        plot2.replot( { resetAxes: true } );
-        plot3.replot( { resetAxes: true } );
-  });
   var languages = [
     {/literal}{foreach $languages as $language}['{$language['language']}', {$language['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(languages).map(function(){total += this[1];})
   myLabels = $.makeArray($(languages).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
-  var plot3 = jQuery.jqplot ('languages', [languages],
+  var plot4 = jQuery.jqplot ('languages', [languages],
     {
       grid: {
                   drawBorder: false,
@@ -156,18 +159,13 @@ $(document).ready(function(){
       }
     }
   );
-  $(window).resize(function() {
-        plot1.replot( { resetAxes: true } );
-        plot2.replot( { resetAxes: true } );
-        plot3.replot( { resetAxes: true } );
-  });
   var countries = [
     {/literal}{foreach $countries as $country}['{$country['country']}', {$country['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(countries).map(function(){total += this[1];})
   myLabels = $.makeArray($(countries).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
-  var plot3 = jQuery.jqplot ('countries', [countries],
+  var plot5 = jQuery.jqplot ('countries', [countries],
     {
       grid: {
                   drawBorder: false,
@@ -184,18 +182,36 @@ $(document).ready(function(){
       }
     }
   );
-  $(window).resize(function() {
-        plot1.replot( { resetAxes: true } );
-        plot2.replot( { resetAxes: true } );
-        plot3.replot( { resetAxes: true } );
-  });
   var gender = [
     {/literal}{foreach $gender as $g}['{$gender_h[$g['gender']]}', {$g['no']}], {/foreach}{literal}
   ];
   var total = 0;
   $(gender).map(function(){total += this[1];})
   myLabels = $.makeArray($(gender).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
-  var plot3 = jQuery.jqplot ('gender', [gender],
+  var plot6 = jQuery.jqplot ('gender', [gender],
+    {
+      grid: {
+                  drawBorder: false,
+                  drawGridlines: false,
+                  background: '#ffffff',
+                  shadow:false
+              },
+        seriesDefaults: {
+        renderer: jQuery.jqplot.PieRenderer,
+        rendererOptions: {
+          showDataLabels: true,
+          dataLabels: myLabels
+        }
+      }
+    }
+  );
+  var gender = [
+    {/literal}{foreach $gender as $g}['{$gender_h[$g['gender']]}', {$g['no']}], {/foreach}{literal}
+  ];
+  var total = 0;
+  $(categories).map(function(){total += this[1];})
+  myLabels = $.makeArray($(categories).map(function(){return "<b>" + this[0] + "</b> " + Math.round(this[1]/total * 100) + "%";}));
+  var plot7 = jQuery.jqplot ('categories', [categories],
     {
       grid: {
                   drawBorder: false,
@@ -216,6 +232,10 @@ $(document).ready(function(){
         plot1.replot( { resetAxes: true } );
         plot2.replot( { resetAxes: true } );
         plot3.replot( { resetAxes: true } );
+        plot4.replot( { resetAxes: true } );
+        plot5.replot( { resetAxes: true } );
+        plot6.replot( { resetAxes: true } );
+        plot7.replot( { resetAxes: true } );
   });
 });
 </script>

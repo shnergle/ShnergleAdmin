@@ -79,6 +79,7 @@ class Main extends Controller {
     $this->gender_h = array('m' => 'Male',
                             'f' => 'Female',
                             '' => '');
+    $this->categories = $this->db_result('SELECT COUNT(venues.id) AS no, type FROM venues, venue_categories WHERE venues.category_id = venue_categories.id GROUP BY type');
     $this->waitingVenuesEmail = $this->db_query_all(null, 'venues', array('email_verified = 0', 'official = 1'));
     $this->waitingVenuesAuth = $this->db_query_all(null, 'venues', array('email_verified = 1', 'verified = 0'));
     $this->waitingVenues = max(count($this->waitingVenuesEmail), count($this->waitingVenuesAuth));
