@@ -229,7 +229,6 @@ $(document).ready(function(){
           }
         }
       }
-    }
   );
   $(window).resize(function() {
         plot1.replot( { resetAxes: true } );
