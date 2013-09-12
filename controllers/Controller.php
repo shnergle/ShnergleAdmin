@@ -78,11 +78,11 @@ class Controller {
 		return $this->db_result('exec sp_columns @table_name = [' . $table . ']');
   }
 	function db_query_all($page = null, $table = null, $where = null, $order_by = null, $group_by = null, $fields = null) {
-    $first_table = explode(', ', $table)[0];
     if (empty($page))
       $page = empty($this->params['page']) ? 1 : $this->params['page'];
 		if (empty($table))
 			$table = $this->slug;
+    $first_table = explode(', ', $table)[0];
     if (!empty($where)) {
       $condition = ' WHERE ';
       if (is_string($where))
