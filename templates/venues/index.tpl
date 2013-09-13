@@ -18,6 +18,9 @@
     <label class="radio-inline">
       <input type="radio" name="type-search" value="to-veri"> Outstanding Email Verification
     </label>
+    <label class="radio-inline">
+      <input type="radio" name="type-search" value="no-twitter"> No Twitter Handle
+    </label>
     <button type="submit" class="btn btn-default">Find</button>
   </form>
 </div>
