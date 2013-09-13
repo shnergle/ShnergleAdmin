@@ -18,7 +18,7 @@ class Venues extends Controller {
         $search[] = 'email_verified = 0';
         $search[] = 'official = 1';
       } elseif ($this->params['type-search'] == 'no-twitter') {
-        $search[] = 'twitter IN (NULL, 0, \'\')';
+        $search[] = 'twitter IN (NULL, \'\')';
       } 
     if (!empty($search)) {
     	$this->entries = $this->db_query_all(null, null, $search);
