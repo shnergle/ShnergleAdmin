@@ -70,6 +70,8 @@ class Main extends Controller {
                                    'iPod3,1' => 'iPod touch 3G',
                                    'iPod4,1' => 'iPod touch 4G',
                                    'iPod5,1' => 'iPod touch 5G',
+                                   'i386' => 'Simulator (32 bit)',
+                                   'x86_64' => 'Simulator (64 bit)',
                                    '' => '');
     $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
     $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
