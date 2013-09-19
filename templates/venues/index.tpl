@@ -58,8 +58,8 @@
           <td>
             <div class="btn-group">
               <a href="/?controller=users&action=view&id={$staff['user_id']}" class="btn btn-primary btn-small">View</a>
-              <a href="/?controller=venue_managers&action=edit&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-warning btn-small">Edit</a>
-              <a href="/?controller=venue_managers&action=delete&user_id={$staff['user_id']}&venue_id={$staff['venue_id']}" class="btn btn-danger btn-small">Delete</a>
+              <a href="/?controller=venue_managers&action=edit&id={$staff['id']}" class="btn btn-warning btn-small">Edit</a>
+              <a href="/?controller=venue_managers&action=delete&id={$staff['id']}" class="btn btn-danger btn-small">Delete</a>
             </div>
           </td>
         </tr>
