@@ -69,19 +69,6 @@
           {$flash}
         </div>
       {/if}
-      {if strpos($slug, 'venue', 0) === 0}
-        <ul class="nav nav-tabs nav-justified">
-          <li{if $slug eq 'venues'} class="active"{/if}>
-            <a href="/?controller=venues">Venues</a>
-          </li>
-          <li{if $slug eq 'venue_managers'} class="active"{/if}>
-            <a href="/?controller=venue_managers">VenueManagers</a>
-          </li>
-          <li{if $slug eq 'venue_staff'} class="active"{/if}>
-            <a href="/?controller=venue_staff">VenueStaff</a>
-          </li>
-        </ul>
-      {/if}
       {block "content"}{/block}
     </div>
   </body>

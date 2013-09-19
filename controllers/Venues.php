@@ -23,8 +23,8 @@ class Venues extends Controller {
     if (!empty($search)) {
     	$this->entries = $this->db_query_all(null, null, $search);
       foreach ($this->entries as &$entry) {
-        $entry['managers'] = $this->db_query_all(null, 'venue_managers, users', array('venue_id = ' . $entry['id'], 'venue_managers.user_id = users.id'));
-        $entry['staff'] = $this->db_query_all(null, 'venue_staff, users', array('venue_id = ' . $entry['id'], 'venue_staff.user_id = users.id'));
+        $entry['managers'] = $this->db_query_all(null, 'users, venue_managers', array('venue_id = ' . $entry['id'], 'venue_managers.user_id = users.id'));
+        $entry['staff'] = $this->db_query_all(null, 'users, venue_staff', array('venue_id = ' . $entry['id'], 'venue_staff.user_id = users.id'));
         $entry['venue_loads'] =  $this->db_count('venue_loads', array('venue_id = ' . $entry['id']));
         $entry['venue_followers'] =  $this->db_count('venue_followers', array('venue_id = ' . $entry['id']));
         $entry['venue_shares'] =  $this->db_count('venue_shares', array('venue_id = ' . $entry['id']));
