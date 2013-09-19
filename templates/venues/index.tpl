@@ -127,6 +127,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="list-group-item"><b>Website:</b> {$entry['website']}</li>
       <li class="list-group-item"><b>Telephone:</b> {$entry['phone']}</li>
       {/if}
+      <li class="list-group-item"><b>Loads:</b> {$entry['venue_loads']}</li>
+      <li class="list-group-item"><b>Views:</b> {$entry['venue_views']}</li>
+      <li class="list-group-item"><b>Shares:</b> {$entry['venue_shares']}</li>
+      <li class="list-group-item"><b>Followers:</b> {$entry['venue_followers']}</li>
+      <li class="list-group-item"><b>RSVPs:</b> {$entry['venue_rsvps']}</li>
     </ul>
   </div>
 {/foreach}

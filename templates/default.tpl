@@ -41,9 +41,6 @@
       {if $auth}
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-          <li{if strpos($slug, 'media', 0) === 0} class="active"{/if}>
-            <a href="/?controller=media">Media</a>
-          </li>
           <li{if strpos($slug, 'post', 0) === 0} class="active"{/if}>
             <a href="/?controller=posts">Posts</a>
           </li>
@@ -113,32 +110,11 @@
           <li{if $slug eq 'venues'} class="active"{/if}>
             <a href="/?controller=venues">Venues</a>
           </li>
-          <li{if $slug eq 'venue_categories'} class="active"{/if}>
-            <a href="/?controller=venue_categories">VenueCategories</a>
-          </li>
-          <li{if $slug eq 'venue_comments'} class="active"{/if}>
-            <a href="/?controller=venue_comments">VenueComments</a>
-          </li>
-          <li{if $slug eq 'venue_followers'} class="active"{/if}>
-            <a href="/?controller=venue_followers">VenueFollowers</a>
-          </li>
-          <li{if $slug eq 'venue_loads'} class="active"{/if}>
-            <a href="/?controller=venue_loads">VenueLoads</a>
-          </li>
           <li{if $slug eq 'venue_managers'} class="active"{/if}>
             <a href="/?controller=venue_managers">VenueManagers</a>
           </li>
-          <li{if $slug eq 'venue_rsvps'} class="active"{/if}>
-            <a href="/?controller=venue_rsvps">VenueRsvps</a>
-          </li>
-          <li{if $slug eq 'venue_shares'} class="active"{/if}>
-            <a href="/?controller=venue_shares">VenueShares</a>
-          </li>
           <li{if $slug eq 'venue_staff'} class="active"{/if}>
             <a href="/?controller=venue_staff">VenueStaff</a>
-          </li>
-          <li{if $slug eq 'venue_views'} class="active"{/if}>
-            <a href="/?controller=venue_views">VenueViews</a>
           </li>
         </ul>
       {/if}
