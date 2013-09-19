@@ -69,25 +69,7 @@
           {$flash}
         </div>
       {/if}
-      {if strpos($slug, 'post', 0) === 0}
-        <ul class="nav nav-tabs nav-justified">
-          <li{if $slug eq 'posts'} class="active"{/if}>
-            <a href="/?controller=posts">Posts</a>
-          </li>
-          <li{if $slug eq 'post_likes'} class="active"{/if}>
-            <a href="/?controller=post_likes">PostLikes</a>
-          </li>
-          <li{if $slug eq 'post_reports'} class="active"{/if}>
-            <a href="/?controller=post_reports">PostReports</a>
-          </li>
-          <li{if $slug eq 'post_shares'} class="active"{/if}>
-            <a href="/?controller=post_shares">PostShares</a>
-          </li>
-          <li{if $slug eq 'post_views'} class="active"{/if}>
-            <a href="/?controller=post_views">PostViews</a>
-          </li>
-        </ul>
-      {elseif strpos($slug, 'promotion', 0) === 0}
+      {if strpos($slug, 'promotion', 0) === 0}
         <ul class="nav nav-tabs nav-justified">
           <li{if $slug eq 'promotions'} class="active"{/if}>
             <a href="/?controller=promotions">Promotions</a>
