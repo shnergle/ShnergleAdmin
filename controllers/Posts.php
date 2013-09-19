@@ -12,4 +12,5 @@ class Venues extends Controller {
     $this->pages = ceil($this->db_count() / ENTRIES_PER_PAGE);
 		$this->render();
 	}
+}
 ?>
