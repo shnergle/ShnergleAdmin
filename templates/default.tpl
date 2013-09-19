@@ -56,9 +56,6 @@
           <li{if strpos($slug, 'venue', 0) === 0} class="active"{/if}>
             <a href="/?controller=venues">Venues</a>
           </li>
-          <li{if strpos($slug, 'image', 0) === 0} class="active"{/if}>
-            <a href="/?controller=images">Images</a>
-          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/?controller=main&action=logout">Log Out</a></li>
