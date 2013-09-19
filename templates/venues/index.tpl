@@ -56,11 +56,11 @@ function initialize() {
       });
 }
 
-google.maps.event.addDomListener(document.getElementById('map-canvas{$entry['id']}'), 'click', initialize);
+google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', initialize);
 
     </script>
     {/literal}
-    <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}">Click to show map</div>
+    <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"><p style="line-height: 200px;text-align:center;width:500px;">Click to show map</p></div>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
     <div style="width: 500px;">
