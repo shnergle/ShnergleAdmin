@@ -1,5 +1,5 @@
 <?php
-class Venues extends Controller {
+class Posts extends Controller {
 	function index() {
 		$this->entries = $this->db_query_all();
     foreach ($this->entries as &$entry) {
