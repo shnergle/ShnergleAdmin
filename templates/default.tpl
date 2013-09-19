@@ -47,8 +47,11 @@
           <li{if strpos($slug, 'promotion', 0) === 0} class="active"{/if}>
             <a href="/?controller=promotions">Promotions</a>
           </li>
-          <li{if strpos($slug, 'user', 0) === 0} class="active"{/if}>
+          <li{if strpos($slug, 'users', 0) === 0} class="active"{/if}>
             <a href="/?controller=users">Users</a>
+          </li>
+          <li{if strpos($slug, 'user_searches', 0) === 0} class="active"{/if}>
+            <a href="/?controller=user_searches">Searches</a>
           </li>
           <li{if strpos($slug, 'venue', 0) === 0} class="active"{/if}>
             <a href="/?controller=venues">Venues</a>
@@ -69,25 +72,7 @@
           {$flash}
         </div>
       {/if}
-      {if strpos($slug, 'promotion', 0) === 0}
-        <ul class="nav nav-tabs nav-justified">
-          <li{if $slug eq 'promotions'} class="active"{/if}>
-            <a href="/?controller=promotions">Promotions</a>
-          </li>
-          <li{if $slug eq 'promotion_redemptions'} class="active"{/if}>
-            <a href="/?controller=promotion_redemptions">PromotionRedemptions</a>
-          </li>
-        </ul>
-      {elseif strpos($slug, 'user', 0) === 0}
-        <ul class="nav nav-tabs nav-justified">
-          <li{if $slug eq 'users'} class="active"{/if}>
-            <a href="/?controller=users">Users</a>
-          </li>
-          <li{if $slug eq 'user_searches'} class="active"{/if}>
-            <a href="/?controller=user_searches">UserSearches</a>
-          </li>
-        </ul>
-      {elseif strpos($slug, 'venue', 0) === 0}
+      {if strpos($slug, 'venue', 0) === 0}
         <ul class="nav nav-tabs nav-justified">
           <li{if $slug eq 'venues'} class="active"{/if}>
             <a href="/?controller=venues">Venues</a>
