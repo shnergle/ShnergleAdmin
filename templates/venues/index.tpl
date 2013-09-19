@@ -111,7 +111,10 @@
     {literal}
     <script>
 var map;
+var loaded{/literal}{$entry['id']}{literal} = false;
 function initialize() {
+  if (loaded{/literal}{$entry['id']}{literal}) return;
+  loaded{/literal}{$entry['id']}{literal} = true;
   var mapOptions = {
     zoom: 13,
     {/literal}
