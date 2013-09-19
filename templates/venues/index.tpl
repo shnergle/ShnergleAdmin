@@ -56,11 +56,11 @@ function initialize() {
       });
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(document.getElementById('map-canvas{$entry['id']}'), 'click', initialize);
 
     </script>
     {/literal}
-    <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"></div>
+    <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}">Click to show map</div>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
     <div style="width: 500px;">
@@ -129,6 +129,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       {/if}
       <li class="list-group-item"><b>Loads:</b> {$entry['venue_loads']}</li>
       <li class="list-group-item"><b>Views:</b> {$entry['venue_views']}</li>
+      <li class="list-group-item"><b>Posts:</b> {$entry['venue_posts']}</li>
       <li class="list-group-item"><b>Shares:</b> {$entry['venue_shares']}</li>
       <li class="list-group-item"><b>Followers:</b> {$entry['venue_followers']}</li>
       <li class="list-group-item"><b>RSVPs:</b> {$entry['venue_rsvps']}</li>
