@@ -33,33 +33,6 @@
 {foreach $entries as $entry}
   <div class="panel">
     <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"></span> verified</span>{/if}</div>
-    {literal}
-    <script>
-var map;
-function initialize() {
-  var mapOptions = {
-    zoom: 13,
-    {/literal}
-    center: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
-    {literal}
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  {/literal}
-  map = new google.maps.Map(document.getElementById('map-canvas{$entry['id']}'),
-      mapOptions);
-      {literal}
-      new google.maps.Marker({
-        {/literal}
-        position: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
-        {literal}
-        map: map
-      });
-}
-
-google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', initialize);
-
-    </script>
-    {/literal}
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"><p style="line-height: 200px;text-align:center;width:500px;">Click to show map</p></div>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
@@ -135,6 +108,33 @@ google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$
       <li class="list-group-item"><b>RSVPs:</b> {$entry['venue_rsvps']}</li>
     </ul>
   </div>
+    {literal}
+    <script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 13,
+    {/literal}
+    center: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
+    {literal}
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  {/literal}
+  map = new google.maps.Map(document.getElementById('map-canvas{$entry['id']}'),
+      mapOptions);
+      {literal}
+      new google.maps.Marker({
+        {/literal}
+        position: new google.maps.LatLng({$entry['lat']}, {$entry['lon']}),
+        {literal}
+        map: map
+      });
+}
+
+google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', initialize);
+
+    </script>
+    {/literal}
 {/foreach}
 {else}
   <p>No entries!</p>
