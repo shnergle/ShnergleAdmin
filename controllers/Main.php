@@ -79,7 +79,7 @@ class Main extends Controller {
                                    'x86_64' => 'Simulator',
                                    '' => '');
     foreach ($iphone_models as $iphone_model) {
-      if (isset($this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]])) {
+      if (isset($this->iphone_models[$this->iphone_models_h[$iphone_model['iphone_model']]])) {
         $this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]] += $iphone_model['no'];
       } else {
         $this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]] = $iphone_model['no'];
