@@ -41,42 +41,50 @@ class Main extends Controller {
                           'VenueShares' => $this->db_count('venue_shares'),
                           'VenueViews' => $this->db_count('venue_views'));
     $this->app_versions = $this->db_result('SELECT app_version, COUNT(id) AS no FROM users GROUP BY app_version');
-    $this->iphone_models = $this->db_result('SELECT iphone_model, COUNT(id) AS no FROM users GROUP BY iphone_model');
+    $iphone_models = $this->db_result('SELECT iphone_model, COUNT(id) AS no FROM users GROUP BY iphone_model');
+    $this->iphone_models = array();
     $this->iphone_models_h = array('iPhone1,1' => 'iPhone',
                                    'iPhone1,2' => 'iPhone 3G',
                                    'iPhone2,1' => 'iPhone 3GS',
-                                   'iPhone3,1' => 'iPhone 4 GSM',
-                                   'iPhone3,2' => 'iPhone 4 GSM (A)',
-                                   'iPhone3,3' => 'iPhone 4 CDMA',
+                                   'iPhone3,1' => 'iPhone 4',
+                                   'iPhone3,2' => 'iPhone 4',
+                                   'iPhone3,3' => 'iPhone 4',
                                    'iPhone4,1' => 'iPhone 4S',
-                                   'iPhone5,1' => 'iPhone 5 GSM',
-                                   'iPhone5,2' => 'iPhone 5 Global',
-                                   'iPhone5,3' => 'iPhone 5c GSM',
-                                   'iPhone5,4' => 'iPhone 5c Global',
-                                   'iPhone6,1' => 'iPhone 5s GSM',
-                                   'iPhone6,2' => 'iPhone 5s Global',
+                                   'iPhone5,1' => 'iPhone 5',
+                                   'iPhone5,2' => 'iPhone 5',
+                                   'iPhone5,3' => 'iPhone 5c',
+                                   'iPhone5,4' => 'iPhone 5c',
+                                   'iPhone6,1' => 'iPhone 5s',
+                                   'iPhone6,2' => 'iPhone 5s',
                                    'iPad1,1' => 'iPad',
-                                   'iPad2,1' => 'iPad 2 WiFi',
-                                   'iPad2,2' => 'iPad 2 GSM',
-                                   'iPad2,3' => 'iPad 2 CDMA',
-                                   'iPad2,4' => 'iPad 2 WiFi (A)',
-                                   'iPad2,5' => 'iPad mini WiFi',
-                                   'iPad2,6' => 'iPad mini GSM',
-                                   'iPad2,7' => 'iPad mini CDMA',
-                                   'iPad3,1' => 'iPad 3 WiFi',
-                                   'iPad3,2' => 'iPad 3 CDMA',
-                                   'iPad3,3' => 'iPad 3 Global',
-                                   'iPad3,4' => 'iPad WiFi',
-                                   'iPad3,5' => 'iPad GSM',
-                                   'iPad3,6' => 'iPad Global',
+                                   'iPad2,1' => 'iPad 2',
+                                   'iPad2,2' => 'iPad 2',
+                                   'iPad2,3' => 'iPad 2',
+                                   'iPad2,4' => 'iPad 2',
+                                   'iPad2,5' => 'iPad mini',
+                                   'iPad2,6' => 'iPad mini',
+                                   'iPad2,7' => 'iPad mini',
+                                   'iPad3,1' => 'iPad 3',
+                                   'iPad3,2' => 'iPad 3',
+                                   'iPad3,3' => 'iPad 3',
+                                   'iPad3,4' => 'iPad 4',
+                                   'iPad3,5' => 'iPad 4',
+                                   'iPad3,6' => 'iPad 4',
                                    'iPod1,1' => 'iPod touch 1G',
                                    'iPod2,1' => 'iPod touch 2G',
                                    'iPod3,1' => 'iPod touch 3G',
                                    'iPod4,1' => 'iPod touch 4G',
                                    'iPod5,1' => 'iPod touch 5G',
-                                   'i386' => 'Simulator (32 bit)',
-                                   'x86_64' => 'Simulator (64 bit)',
+                                   'i386' => 'Simulator',
+                                   'x86_64' => 'Simulator',
                                    '' => '');
+    foreach ($iphone_models as $iphone_model) {
+      if (isset($this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]])) {
+        $this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]] += $iphone_model['no'];
+      } else {
+        $this->iphone_models[$this->iphone_models_h[$app_version['iphone_model']]] = $iphone_model['no'];
+      }
+    }
     $ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
     $this->ios_versions = array();
     foreach ($ios_versions as $version) {
