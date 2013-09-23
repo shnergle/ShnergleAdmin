@@ -77,7 +77,21 @@ class Main extends Controller {
                                    'i386' => 'Simulator (32 bit)',
                                    'x86_64' => 'Simulator (64 bit)',
                                    '' => '');
-    $this->ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
+    $ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
+    $this->ios_versions = array();
+    foreach ($ios_versions as $version) {
+      $short_version = explode('.', $version['ios_version']);
+      if ($short_version) {
+        $short_version = $short_version[0].'.'.$short_version[1];
+      } else {
+        $short_version = '';
+      }
+      if (isset($this->ios_versions[$short_version])) {
+        $this->ios_version[$short_version] += $version['no'];
+      } else {
+        $this->ios_version[$short_version] = $version['no'];
+      }
+    }
     $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
     $this->languages_h = array('af_ZA' => 'Afrikaans',
                                'az_AZ' => 'Azərbaycan dili',
