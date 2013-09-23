@@ -87,9 +87,9 @@ class Main extends Controller {
         $short_version = '';
       }
       if (isset($this->ios_versions[$short_version])) {
-        $this->ios_version[$short_version] += $version['no'];
+        $this->ios_versions[$short_version] += $version['no'];
       } else {
-        $this->ios_version[$short_version] = $version['no'];
+        $this->ios_versions[$short_version] = $version['no'];
       }
     }
     $this->languages = $this->db_result('SELECT language, COUNT(id) AS no FROM users GROUP BY language');
