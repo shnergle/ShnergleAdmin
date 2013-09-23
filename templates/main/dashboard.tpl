@@ -91,7 +91,7 @@ $(document).ready(function(){
     }
   );
   var model = [
-    {/literal}{foreach $iphone_models as $iphone_model => $no}['{$iphone_models}', {$no}], {/foreach}{literal}
+    {/literal}{foreach $iphone_models as $iphone_model => $no}['{$iphone_model}', {$no}], {/foreach}{literal}
   ];
   var total = 0;
   $(model).map(function(){total += this[1];})
