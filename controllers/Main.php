@@ -80,8 +80,8 @@ class Main extends Controller {
     $ios_versions = $this->db_result('SELECT ios_version, COUNT(id) AS no FROM users GROUP BY ios_version');
     $this->ios_versions = array();
     foreach ($ios_versions as $version) {
-      $short_version = explode('.', $version['ios_version']);
-      if ($short_version) {
+      if ($version['ios_version']) {
+        $short_version = explode('.', $version['ios_version']);
         $short_version = $short_version[0].'.'.$short_version[1];
       } else {
         $short_version = '';
