@@ -114,7 +114,7 @@ $(document).ready(function(){
     }
   );
   var ios = [
-    {/literal}{foreach $ios_versions as $ios_version}['{$ios_version['ios_version']}', {$ios_version['no']}], {/foreach}{literal}
+    {/literal}{foreach $ios_versions as $ios_version => $no}['{$ios_version}', {$no}], {/foreach}{literal}
   ];
   var total = 0;
   $(ios).map(function(){total += this[1];})
