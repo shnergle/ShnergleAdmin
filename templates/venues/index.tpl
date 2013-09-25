@@ -143,7 +143,7 @@ function initialize() {
         oldMarker{/literal}{$entry['id']}{literal} = new google.maps.Marker({
               position: event.latLng,
               map: map,
-              title: "New Position"
+              icon: {path: google.maps.SymbolPath.CIRCLE, fillColor: "blue"}
           });
           $({/literal}'#mapupdate{$entry['id']} input[name="lat"]'{literal}).val(event.latLng.lat());
           $({/literal}'#mapupdate{$entry['id']} input[name="lon"]'{literal}).val(event.latLng.lng());
