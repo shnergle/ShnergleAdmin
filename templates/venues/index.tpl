@@ -34,7 +34,7 @@
   <div class="panel">
     <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"></span> verified</span>{/if}</div>
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"><p style="line-height: 200px;text-align:center;width:500px;">Click to show map</p></div>
-    <form method="post" action="/?controller={$slug}&action=edit_action&id={$entry['id']}" id="mapupdate{$entry['id']}"><input type="hidden" value="{$entry['lat']}" name="lat"><input type="hidden" value="{$entry['lon']}" name="lon"><input type="submit" class="btn btn-success" value="Update coordinates"></form>
+    <form method="post" action="/?controller={$slug}&action=edit_action&id={$entry['id']}" id="mapupdate{$entry['id']}"><input type="hidden" value="{$entry['lat']}" name="lat"><input type="hidden" value="{$entry['lon']}" name="lon"><input type="submit" class="btn btn-success" value="Update Coordinates"></form>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
     <div style="width: 500px;">
@@ -142,7 +142,8 @@ function initialize() {
         }
         oldMarker{/literal}{$entry['id']}{literal} = new google.maps.Marker({
               position: event.latLng,
-              map: map
+              map: map,
+              title: "New Position"
           });
           $({/literal}'#mapupdate{$entry['id']} input[name="lat"]'{literal}).val(event.latLng.lat());
           $({/literal}'#mapupdate{$entry['id']} input[name="lon"]'{literal}).val(event.latLng.lng());
