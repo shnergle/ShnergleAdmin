@@ -34,6 +34,7 @@
   <div class="panel">
     <div class="panel-heading"><b>{$entry['name']}</b> {if $entry['official'] eq 1}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> official</span> <span class="label label-{if $entry['verified'] eq 1}success{else}danger{/if}"><span class="glyphicon glyphicon-{if $entry['verified'] eq 1}ok{else}remove{/if}"></span> verified</span>{/if}</div>
     <div style="height: 200px; width: 500px;" id="map-canvas{$entry['id']}"><p style="line-height: 200px;text-align:center;width:500px;">Click to show map</p></div>
+    <form id="mapupdate{$entry['id']}"><input type="hidden" value="{$entry['id']}" name="id"><input type="hidden" value="{$entry['lat']}" name="lat"><input type="hidden" value="{$entry['lon']}" name="lon"><input type="submit" class="btn btn-success" value="Update coordinates"></form>
     <p>&nbsp;</p>
     {if $entry['official'] eq 1}
     <div style="width: 500px;">
@@ -133,6 +134,16 @@ function initialize() {
         {literal}
         map: map
       });
+
+      google.maps.event.addListener({/literal}document.getElementById('map-canvas{$entry['id']}'){literal}, 'click', function(event) {
+        var marker = new google.maps.Marker({
+              position: event.latLon,
+              map: {/literal}document.getElementById('map-canvas{$entry['id']}'){literal}
+          });
+          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLon.lat());
+          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLon.lon());
+      });
+      
 }
 
 google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', initialize);
