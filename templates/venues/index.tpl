@@ -135,19 +135,20 @@ function initialize() {
         map: map
       });
 
-      google.maps.event.addListener({/literal}document.getElementById('map-canvas{$entry['id']}'){literal}, 'click', function(event) {
-        var marker = new google.maps.Marker({
-              position: event.latLon,
-              map: {/literal}document.getElementById('map-canvas{$entry['id']}'){literal}
-          });
-          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLon.lat());
-          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLon.lon());
-      });
+      
       
 }
 
 google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', initialize);
-
+google.maps.event.addListener({/literal}document.getElementById('map-canvas{$entry['id']}'){literal}, 'click', function(event) {
+  
+  var marker = new google.maps.Marker({
+        position: event.latLon,
+        map: {/literal}document.getElementById('map-canvas{$entry['id']}'){literal}
+    });
+    $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLon.lat());
+    $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLon.lon());
+});
     </script>
     {/literal}
 {/foreach}
