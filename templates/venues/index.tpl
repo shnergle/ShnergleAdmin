@@ -139,7 +139,7 @@ function initialize() {
   
         var marker = new google.maps.Marker({
               position: event.latLon,
-              map: {/literal}document.getElementById('map-canvas{$entry['id']}'){literal}
+              map: document.getElementById('map-canvas{/literal}{$entry['id']}{literal}')
           });
           $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLon.lat());
           $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLon.lon());
