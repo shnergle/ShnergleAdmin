@@ -114,6 +114,7 @@
     <script>
 var map;
 var loaded{/literal}{$entry['id']}{literal} = false;
+var oldMarker{/literal}{$entry['id']}{literal} = false;
 function initialize() {
   if (loaded{/literal}{$entry['id']}{literal}) return;
   loaded{/literal}{$entry['id']}{literal} = true;
@@ -134,10 +135,12 @@ function initialize() {
         {literal}
         map: map
       });
-
+      
       google.maps.event.addListener(map, 'click', function(event) {
-  
-        var marker = new google.maps.Marker({
+        if (oldMarker{/literal}{$entry['id']}{literal}) {
+          oldMarker{/literal}{$entry['id']}{literal}.setMap(null);oldMarker{/literal}{$entry['id']}{literal} = null;
+        }
+        oldMarker{/literal}{$entry['id']}{literal} = new google.maps.Marker({
               position: event.latLng,
               map: map
           });
