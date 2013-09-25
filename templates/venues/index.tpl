@@ -141,8 +141,8 @@ function initialize() {
               position: event.latLng,
               map: map
           });
-          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLng.lat);
-          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLng.lon);
+          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLng.lat());
+          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLng.lng());
       });
       
 }
