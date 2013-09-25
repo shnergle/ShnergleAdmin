@@ -138,11 +138,11 @@ function initialize() {
       google.maps.event.addDomListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', function(event) {
   
         var marker = new google.maps.Marker({
-              position: event.latLon,
+              position: event.latLng,
               map: map
           });
-          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLon.lat());
-          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLon.lon());
+          $({/literal}'map-canvas{$entry['id']} input[name="lat"]'{literal}).val(event.latLng.lat());
+          $({/literal}'map-canvas{$entry['id']} input[name="lon"]'{literal}).val(event.latLng.lon());
       });
       
 }
