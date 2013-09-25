@@ -135,7 +135,7 @@ function initialize() {
         map: map
       });
 
-      google.maps.event.addListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}', 'click', function(event) {
+      google.maps.event.addListener(document.getElementById('map-canvas{/literal}{$entry['id']}{literal}'), 'click', function(event) {
   
         var marker = new google.maps.Marker({
               position: event.latLon,
