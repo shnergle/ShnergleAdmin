@@ -107,7 +107,6 @@
       <li class="list-group-item"><b>Posts:</b> {$entry['venue_posts']}</li>
       <li class="list-group-item"><b>Shares:</b> {$entry['venue_shares']}</li>
       <li class="list-group-item"><b>Followers:</b> {$entry['venue_followers']}</li>
-      <li class="list-group-item"><b>RSVPs:</b> {$entry['venue_rsvps']}</li>
     </ul>
   </div>
     {literal}

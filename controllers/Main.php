@@ -37,7 +37,6 @@ class Main extends Controller {
                           'Venues (Authenticated)' => $this->db_count('venues', array('verified = 1')),
                           'VenueFollowers' => $this->db_count('venue_followers'),
                           'VenueLoads' => $this->db_count('venue_loads'),
-                          'VenueRsvps' => $this->db_count('venue_rsvps'),
                           'VenueShares' => $this->db_count('venue_shares'),
                           'VenueViews' => $this->db_count('venue_views'));
     $this->app_versions = $this->db_result('SELECT app_version, COUNT(id) AS no FROM users GROUP BY app_version');
