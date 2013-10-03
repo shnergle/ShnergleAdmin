@@ -6,8 +6,8 @@ session_start();
 if (empty($_SESSION['auth'])) return;
 $coninfo = array('Database' => DB_DB, 'UID' => DB_USER, 'PWD' => DB_PASS);
 $db = sqlsrv_connect(DB_SERVER, $coninfo);
-$sql = "SELECT * FROM target_database_table_name";
-$results = sqlsrv_query($sql, $db);
+$sql = "SELECT * FROM ".$_GET['table'];
+$results = sqlsrv_query($db, $sql);
 //Generate CSV file - Set as sqlsrv_ASSOC as you don't need the numeric values.
 while ($l = sqlsrv_fetch_array($results, sqlsrv_ASSOC)) {
     foreach($l AS $key => $value){
