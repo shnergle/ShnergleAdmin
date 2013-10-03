@@ -29,6 +29,6 @@ sqlsrv_free_stmt($results);
 sqlsrv_close($db);
 // Output to browser with the CSV mime type
 header("Content-type: text/x-csv");
-header("Content-Disposition: attachment; filename=table_dump.csv");
+header("Content-Disposition: attachment; filename=".$_GET['table'].".csv");
 echo $out;
 ?>
