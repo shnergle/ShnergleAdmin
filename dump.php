@@ -24,7 +24,7 @@ while ($l = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)) {
     }
     $out .= "\n";
 }
-sqlsrv_free_result($results);
+sqlsrv_free_stmt($results);
 sqlsrv_close($db);
 // Output to browser with the CSV mime type
 header("Content-type: text/x-csv");
