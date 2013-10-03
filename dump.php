@@ -9,7 +9,7 @@ $db = sqlsrv_connect(DB_SERVER, $coninfo);
 $sql = "SELECT * FROM ".$_GET['table'];
 $results = sqlsrv_query($db, $sql);
 //Generate CSV file - Set as sqlsrv_ASSOC as you don't need the numeric values.
-while ($l = sqlsrv_fetch_array($results, sqlsrv_ASSOC)) {
+while ($l = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)) {
     foreach($l AS $key => $value){
         //If the character " exists, then escape it, otherwise the csv file will be invalid.
         $pos = strpos($value, '"');
