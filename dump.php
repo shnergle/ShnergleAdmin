@@ -8,6 +8,7 @@ $coninfo = array('Database' => DB_DB, 'UID' => DB_USER, 'PWD' => DB_PASS);
 $db = sqlsrv_connect(DB_SERVER, $coninfo);
 $sql = "SELECT * FROM ".$_GET['table'];
 $results = sqlsrv_query($db, $sql);
+$out = '';
 //Generate CSV file - Set as sqlsrv_ASSOC as you don't need the numeric values.
 while ($l = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)) {
     foreach($l AS $key => $value){
